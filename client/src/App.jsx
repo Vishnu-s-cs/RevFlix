@@ -3,12 +3,11 @@ import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
-import {
-  BrowserRouter as Router,
+import {BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-} from "react-router-dom";
+  } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
 
@@ -27,7 +26,7 @@ const App = () => {
         {user && (
           <>
             <Route path="/movies">
-              <Home type="movie" />
+              <Home type="movies" />
             </Route>
             <Route path="/series">
               <Home type="series" />

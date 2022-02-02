@@ -9,16 +9,16 @@ const listRoute = require("./routes/lists");
 
 dotenv.config();
 
-mongoose
-  .connect(process.env.MONGO_URL, {
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
+    // useCreateIndex: true,
   })
-  .then(() => console.log("DB Connection Successfull"))
-  .catch((err) => {
-    console.error(err);
-  });
+  .then(() => console.log("Its connected baby!")).catch((err) => 
+  
+    console.error(err))
+    
+  
 
 app.use(express.json());
 
