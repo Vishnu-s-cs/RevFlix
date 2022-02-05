@@ -40,10 +40,11 @@ router.post("/login", async (req, res) => {
     const { password, ...info } = user._doc;
 
     res.status(200).json({ ...info, accessToken });
-  } catch (err) {
-    res.status(500).json(err);
-  
+  } catch(err){
+    // res.status(500).json(err);
+    console.log("login failed/invalid credentials");
   }
+  
 });
 
 module.exports = router;

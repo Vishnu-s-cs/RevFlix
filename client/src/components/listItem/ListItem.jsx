@@ -31,9 +31,9 @@ export default function ListItem({ index, item }) {
   }, [item]);
 
   return (
-    <Link to={{ pathname: "/watch", movie: movie }}>
+    
       <div
-        className="listItem"
+        className={`listItem`}
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -44,7 +44,7 @@ export default function ListItem({ index, item }) {
             <video src={movie.trailer} autoPlay={true} loop />
             <div className="itemInfo">
               <div className="icons">
-                <PlayArrow className="icon" />
+              <Link to={{ pathname: "/watch", movie: movie }}><PlayArrow className="icon" /></Link>
                 <Add className="icon" />
                 <ThumbUpAltOutlined className="icon" />
                 <ThumbDownOutlined className="icon" />
@@ -60,6 +60,6 @@ export default function ListItem({ index, item }) {
           </>
         )}
       </div>
-    </Link>
+    
   );
 }

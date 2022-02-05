@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { useState } from "react";
 import {useHistory} from "react-router-dom";
 import "./register.scss";
-
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,7 +34,7 @@ export default function Register() {
             src="https://www.linkpicture.com/q/REVFLIX_Logo.png"
             alt=""
           />
-          <button className="loginButton">Sign In</button>
+          <button className="loginButton" onClick={handleStart}>Sign In</button>
         </div>
       </div>
       <div className="container">
