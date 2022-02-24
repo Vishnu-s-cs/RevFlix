@@ -16,7 +16,7 @@ export const getLists = async (dispatch) => {
   try {
     const res = await axios.get("/lists", {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
       },
     });
     dispatch(getListsSuccess(res.data));

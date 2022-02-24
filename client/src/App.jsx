@@ -1,4 +1,5 @@
 import "./app.scss";
+import Book from "./Book/Book";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
@@ -33,6 +34,9 @@ const App = () => {
             </Route>
             <Route path="/watch">
               <Watch />
+            </Route>
+            <Route path="/book">
+              <Book />
             </Route>
           </>
         )}

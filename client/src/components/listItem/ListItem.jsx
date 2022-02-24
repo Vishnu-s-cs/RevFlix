@@ -38,10 +38,10 @@ export default function ListItem({ index, item }) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <img src={movie?.imgSm} alt="" />
+      <img src={movie?.imgSm} alt="" />
         {isHovered && (
           <>
-            <video src={movie.trailer} autoPlay={true} loop />
+          <Link to={{ pathname: "/book", movie: movie }}> <video src={movie.trailer} autoPlay={true} loop /></Link>
             <div className="itemInfo">
               <div className="icons">
               <Link to={{ pathname: "/watch", movie: movie }}><PlayArrow className="icon" /></Link>

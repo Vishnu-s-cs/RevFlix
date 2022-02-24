@@ -3,7 +3,7 @@ import "./newMovie.css";
 import storage from "../../firebase";
 import { createMovie } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
-
+import React, { Component }  from 'react';
 export default function NewMovie() {
   const [movie, setMovie] = useState(null);
   const [img, setImg] = useState(null);
@@ -26,10 +26,11 @@ export default function NewMovie() {
       const uploadTask = storage.ref(`/items/${fileName}`).put(item.file);
       uploadTask.on(
         "state_changed",
-        (snapshot) => {
+       function hi(snapshot) {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
+          return progress
         },
         (error) => {
           console.log(error);
@@ -170,6 +171,7 @@ export default function NewMovie() {
             onChange={(e) => setVideo(e.target.files[0])}
           />
         </div>
+        {/* {hi().progress} */}
         {uploaded === 5 ? (
           <button className="addProductButton" onClick={handleSubmit}>
             Create

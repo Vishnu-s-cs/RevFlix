@@ -1,4 +1,5 @@
 import "./sidebar.css";
+import React, { Component }  from 'react';
 import {
   LineStyle,
   Timeline,

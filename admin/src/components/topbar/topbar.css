@@ -16,9 +16,8 @@
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 30px;
-  color: darkblue;
+  margin-top: 15px;
+  height: 65px;
   cursor: pointer;
 }
 
@@ -54,4 +53,12 @@
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.logoutButton {
+  background-color: teal;
+  border: none;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
 }

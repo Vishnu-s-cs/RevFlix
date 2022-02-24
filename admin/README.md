@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-
+<img className="logo" src="https://www.linkpicture.com/q/REVFLIX_Logo.png" alt="" />
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
