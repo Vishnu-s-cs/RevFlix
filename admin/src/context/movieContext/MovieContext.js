@@ -1,6 +1,6 @@
 import MovieReducer from "./MovieReducer";
 import { createContext, useReducer } from "react";
-import React, { Component }  from 'react';
+import React from 'react';
 const INITIAL_STATE = {
   movies: [],
   isFetching: false,

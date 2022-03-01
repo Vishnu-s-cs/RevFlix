@@ -9,7 +9,7 @@ export default function Movie() {
     <div className="product">
       <div className="productTitleContainer">
         <h1 className="productTitle">Movie</h1>
-        <Link to="/newproduct">
+        <Link to="/newMovie">
           <button className="productAddButton">Create</button>
         </Link>
       </div>

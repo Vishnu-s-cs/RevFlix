@@ -1,9 +1,7 @@
-.wrapper::-webkit-scrollbar{
-  display: none;}
 .list {
   width: 100%;
   margin-top: 10px;
-
+  scroll-behavior: smooth;
   .listTitle {
     color: white;
     font-size: 20px;
@@ -13,7 +11,6 @@
 
   .wrapper {
     position: relative;
-    overflow-x: scroll;
     .sliderArrow {
       width: 50px;
       height: 100%;

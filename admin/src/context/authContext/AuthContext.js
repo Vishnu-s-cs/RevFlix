@@ -1,6 +1,6 @@
 import AuthReducer from "./AuthReducer";
 import { createContext, useEffect, useReducer } from "react";
-import React, { Component }  from 'react';
+import React from 'react';
 const INITIAL_STATE = {
   user: JSON.parse(localStorage.getItem("user")) || null,
   isFetching: false,
@@ -22,7 +22,7 @@ export const AuthContextProvider = ({ children }) => {
         user: state.user,
         isFetching: state.isFetching,
         error: state.error,
-        dispatch,
+        dispatch
       }}
     >
       {children}

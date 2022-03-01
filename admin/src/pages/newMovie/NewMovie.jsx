@@ -3,7 +3,7 @@ import "./newMovie.css";
 import storage from "../../firebase";
 import { createMovie } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
-import React, { Component }  from 'react';
+import React from 'react';
 export default function NewMovie() {
   const [movie, setMovie] = useState(null);
   const [img, setImg] = useState(null);
@@ -12,7 +12,7 @@ export default function NewMovie() {
   const [trailer, setTrailer] = useState(null);
   const [video, setVideo] = useState(null);
   const [uploaded, setUploaded] = useState(0);
-
+  const [progress,setProgress]=useState(0);
   const { dispatch } = useContext(MovieContext);
 
   const handleChange = (e) => {
@@ -26,11 +26,11 @@ export default function NewMovie() {
       const uploadTask = storage.ref(`/items/${fileName}`).put(item.file);
       uploadTask.on(
         "state_changed",
-       function hi(snapshot) {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+       (snapshot) => {
+       const progress =
+            Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
           console.log("Upload is " + progress + "% done");
-          return progress
+          setProgress(progress)
         },
         (error) => {
           console.log(error);
@@ -47,7 +47,7 @@ export default function NewMovie() {
     });
   };
 
-  const handleUpload = (e) => {
+  const handleUpload =(e) => {
     e.preventDefault();
     upload([
       { file: img, label: "img" },
@@ -55,9 +55,9 @@ export default function NewMovie() {
       { file: imgSm, label: "imgSm" },
       { file: trailer, label: "trailer" },
       { file: video, label: "video" },
-    ]);
+    ]);createMovie(movie, dispatch);
   };
-
+console.log(movie);
   const handleSubmit = (e) => {
     e.preventDefault();
     createMovie(movie, dispatch);
@@ -182,6 +182,8 @@ export default function NewMovie() {
           </button>
         )}
       </form>
+      <h2 className="hero">Uploading done {progress}%</h2>
     </div>
+    
   );
 }

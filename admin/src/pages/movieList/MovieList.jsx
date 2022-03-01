@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 import { deleteMovie, getMovies } from "../../context/movieContext/apiCalls";
-import React, { Component }  from 'react';
+import React from 'react';
 export default function MovieList() {
   const { movies, dispatch } = useContext(MovieContext);
 
@@ -16,7 +16,7 @@ export default function MovieList() {
   const handleDelete = (id) => {
     deleteMovie(id, dispatch);
   };
-
+ console.log(movies);
   const columns = [
     { field: "_id", headerName: "ID", width: 90 },
     {

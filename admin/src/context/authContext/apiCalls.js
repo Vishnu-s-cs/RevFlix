@@ -11,7 +11,7 @@ export const login = async (user, dispatch) => {
     dispatch(loginFailure());
   }
 };
-export const logout = () => ({
-  type: "LOGOUT",
-});
+// export const logout = () => ({
+//   type: "LOGOUT",
+// });
 

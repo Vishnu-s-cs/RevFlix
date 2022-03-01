@@ -21,8 +21,8 @@ import NewList from "./pages/newList/NewList";
 import MovieList from "./pages/movieList/MovieList";
 import { Movie } from "@material-ui/icons";
 import NewMovie from "./pages/newMovie/NewMovie";
-import { login } from "./context/authContext/apiCalls";
-
+import UserStats from "./pages/Analytics/userAnalytics";
+import SaleStats from "./pages/Analytics/salesAnalytics";
 function App() {
   const { user } = useContext(AuthContext);
   return (
@@ -37,6 +37,12 @@ function App() {
               <Sidebar />
               <Route exact path="/">
                 <Home />
+              </Route>
+              <Route path="/analytics">
+                <UserStats />
+              </Route>
+              <Route path="/SalesAnalytics">
+                <SaleStats />
               </Route>
               <Route path="/users">
                 <UserList />

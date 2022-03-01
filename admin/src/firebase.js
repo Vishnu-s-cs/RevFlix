@@ -1,7 +1,6 @@
 import firebase from "firebase";
-
 const firebaseConfig = {
-  apiKey: "AIzaSyBnGHMEk5llQCDRhm08QVF4oZwCoIb6nks",
+  apiKey: process.env.APP_KEY,
   authDomain: "revflix-af00d.firebaseapp.com",
   projectId: "revflix-af00d",
   storageBucket: "revflix-af00d.appspot.com",

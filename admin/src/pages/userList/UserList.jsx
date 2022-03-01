@@ -1,43 +1,42 @@
 import "./userList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import React, { Component }  from 'react';
-export default function UserList() {
-  const [data, setData] = useState(userRows);
+import { useContext, useEffect } from "react";
+import { MovieContext } from "../../context/movieContext/MovieContext";
+import { deleteMovie, getMovies } from "../../context/movieContext/apiCalls";
+import React from 'react';
+export default function MovieList() {
+  const { movies, dispatch } = useContext(MovieContext);
+
+  useEffect(() => {
+    getMovies(dispatch);
+  }, [dispatch]);
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    deleteMovie(id, dispatch);
   };
-  
+ console.log(movies);
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "_id", headerName: "ID", width: 90 },
     {
-      field: "user",
-      headerName: "User",
+      field: "movie",
+      headerName: "Movie",
       width: 200,
       renderCell: (params) => {
         return (
-          <div className="userListUser">
-            <img className="userListImg" src={params.row.avatar} alt="" />
-            {params.row.username}
+          <div className="productListItem">
+            <img className="productListImg" src={params.row.img} alt="" />
+            {params.row.title}
           </div>
         );
       },
     },
-    { field: "email", headerName: "Email", width: 200 },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 120,
-    },
-    {
-      field: "transaction",
-      headerName: "Transaction Volume",
-      width: 160,
-    },
+    { field: "genre", headerName: "Genre", width: 120 },
+    { field: "year", headerName: "year", width: 120 },
+    { field: "limit", headerName: "limit", width: 120 },
+    { field: "isSeries", headerName: "isSeries", width: 120 },
+
     {
       field: "action",
       headerName: "Action",
@@ -45,12 +44,14 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
+            <Link
+              to={{ pathname: "/movie/" + params.row._id, movie: params.row }}
+            >
+              <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
+              className="productListDelete"
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
@@ -59,13 +60,14 @@ export default function UserList() {
   ];
 
   return (
-    <div className="userList">
+    <div className="productList">
       <DataGrid
-        rows={data}
+        rows={movies}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
         checkboxSelection
+        getRowId={(r) => r._id}
       />
     </div>
   );

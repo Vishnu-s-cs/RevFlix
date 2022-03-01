@@ -1,15 +1,35 @@
+// import { ArrowBackOutlined } from "@material-ui/icons";
+// import YouTube from 'react-youtube';
+// import { Link, useLocation } from "react-router-dom";
+// import "./watch.scss";
+
+// export default function Watch() {
+//   const opts = {
+//     playerVars: {
+//       // https://developers.google.com/youtube/player_parameters
+//       autoplay: 1,
+//     },
+//   };
+//   const location = useLocation();
+//   const movie = location.movie;
+//   return (
+//     <div className="watch">
+//       <Link to="/">
+//         <div className="back">
+//           <ArrowBackOutlined />
+//           Home
+//         </div>
+//       </Link>
+//       {/* <video className="video" autoPlay progress controls src={movie.video} /> */}
+//       <YouTube className="video" videoId="2g811Eo7K8U" opts={opts}/>
+//     </div>
+//   );
+// }
 import { ArrowBackOutlined } from "@material-ui/icons";
-import YouTube from 'react-youtube';
 import { Link, useLocation } from "react-router-dom";
 import "./watch.scss";
 
 export default function Watch() {
-  const opts = {
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-    },
-  };
   const location = useLocation();
   const movie = location.movie;
   return (
@@ -20,8 +40,7 @@ export default function Watch() {
           Home
         </div>
       </Link>
-      {/* <video className="video" autoPlay progress controls src={movie.video} /> */}
-      <YouTube className="video" videoId="2g811Eo7K8U" opts={opts}/>
+      <video className="video" autoPlay progress controls src={movie.video} />
     </div>
   );
 }

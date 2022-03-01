@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "./list.css";
-import { Publish } from "@material-ui/icons";
-import React, { Component }  from 'react';
+import React from 'react';
 export default function List() {
   const location = useLocation();
   const list = location.list;

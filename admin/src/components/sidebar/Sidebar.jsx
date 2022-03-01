@@ -1,5 +1,5 @@
 import "./sidebar.css";
-import React, { Component }  from 'react';
+import React from 'react';
 import {
   LineStyle,
   Timeline,
@@ -30,14 +30,17 @@ export default function Sidebar() {
                 Home
               </li>
             </Link>
+            <Link to="/analytics" className="link">
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics
             </li>
+            </Link>
+            <Link to="/SalesAnalytics" className="link">
             <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
               Sales
-            </li>
+            </li></Link>
           </ul>
         </div>
         <div className="sidebarMenu">
