@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 /.env
+/F:\RevFlix\youtube\rzp.csv
+/F:\RevFlix\youtube\admin\.env
+/F:\RevFlix\youtube\api\.env
 # testing
 /coverage
 
