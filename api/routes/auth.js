@@ -26,7 +26,7 @@ router.post("/login", async (req, res) => {
 
     const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
     const originalPassword = bytes.toString(CryptoJS.enc.Utf8);
-
+    console.log(originalPassword);
     originalPassword !== req.body.password &&
       res.status(401).json("Wrong password or username!");
       
@@ -37,7 +37,7 @@ router.post("/login", async (req, res) => {
       { expiresIn: "5d" }
     );
 
-    const { password, ...info } = user._doc;
+    const {password,...info } = user._doc;
 
     res.status(200).json({ ...info, accessToken });
   } catch(err){

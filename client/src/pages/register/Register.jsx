@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useRef } from "react";
 import { useState } from "react";
-import {useHistory} from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
 import "./register.scss";
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -54,6 +54,7 @@ export default function Register() {
           <form className="input">
             <input type="username" placeholder="username" ref={usernameRef} />
             <input type="password" placeholder="password" ref={passwordRef} />
+            <button onClick={<Redirect to="/pay"/>}></button>
             <button className="registerButton" onClick={handleFinish}>
               Start
             </button>
