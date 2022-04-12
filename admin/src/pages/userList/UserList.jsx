@@ -3,39 +3,38 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { MovieContext } from "../../context/movieContext/MovieContext";
-import { deleteMovie, getMovies } from "../../context/movieContext/apiCalls";
+import { UserContext } from "../../context/userContext/UserContext";
+import { deleteUser, getUsers } from "../../context/userContext/apiCalls";
 import React from 'react';
-export default function MovieList() {
-  const { movies, dispatch } = useContext(MovieContext);
+export default function UserList() {
+  const { users, dispatch } = useContext(UserContext);
 
   useEffect(() => {
-    getMovies(dispatch);
+    getUsers(dispatch);
   }, [dispatch]);
 
   const handleDelete = (id) => {
-    deleteMovie(id, dispatch);
+    deleteUser(id, dispatch);
   };
- console.log(movies);
+ 
   const columns = [
-    { field: "_id", headerName: "ID", width: 90 },
+    { field: "_id", headerName: "ID", width: 200 },
     {
-      field: "movie",
-      headerName: "Movie",
-      width: 200,
+      field: "user",
+      headerName: "user",
+      width: 150,
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="" />
-            {params.row.title}
+            <img className="productListImg" src={params.row.profilePic} alt="" />
+            {params.row.username}
           </div>
         );
       },
     },
-    { field: "genre", headerName: "Genre", width: 120 },
-    { field: "year", headerName: "year", width: 120 },
-    { field: "limit", headerName: "limit", width: 120 },
-    { field: "isSeries", headerName: "isSeries", width: 120 },
+    { field: "email", headerName: "Email", width: 170 },
+    { field: "updatedAt", headerName: "Join Date", width: 150 },
+    { field: "customerId", headerName: "CustomerId", width: 190 },
 
     {
       field: "action",
@@ -45,7 +44,7 @@ export default function MovieList() {
         return (
           <>
             <Link
-              to={{ pathname: "/movie/" + params.row._id, movie: params.row }}
+              to={{ pathname: "/user/" + params.row._id, user: params.row }}
             >
               <button className="productListEdit">Edit</button>
             </Link>
@@ -62,7 +61,7 @@ export default function MovieList() {
   return (
     <div className="productList">
       <DataGrid
-        rows={movies}
+        rows={users}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}

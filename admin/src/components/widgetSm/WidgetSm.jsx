@@ -2,7 +2,7 @@ import "./widgetSm.css";
 import { Visibility } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import React, { Component }  from 'react';
+import React from 'react';
 export default function WidgetSm() {
   const [newUsers, setNewUsers] = useState([]);
 
@@ -27,8 +27,8 @@ export default function WidgetSm() {
     <div className="widgetSm">
       <span className="widgetSmTitle">New Join Members</span>
       <ul className="widgetSmList">
-        {newUsers.map((user) => (
-          <li className="widgetSmListItem">
+        {newUsers.map((user) =>(
+          <li className="widgetSmListItem" key={Math.random()}>
             <img
               src={
                 user.profilePic ||

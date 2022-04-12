@@ -16,18 +16,18 @@ export default function Featured({ type, setGenre }) {
           },
         });
         setContent(res.data[0]);
+        
       } catch (err) {
         console.log(err);
       }
     };
     getRandomContent();
   }, [type]);
-
-  console.log(content);
+var a
   return (
     <div className="featured">
       {type && (
-        <div className="category">
+        <div className="category"><br />
           <span>{type === "movie" ? "Movies" : "Series"}</span>
           <select
             name="genre"

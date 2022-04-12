@@ -5,10 +5,10 @@ import List from "../../components/list/List";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Home = ({ type }) => {
+const Home = ({ type }) => { 
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
-
+  const[id,setId]=useState({})
   useEffect(() => {
     const getRandomLists = async () => {
       try {
@@ -23,7 +23,7 @@ const Home = ({ type }) => {
             },
           }
         );
-        // console.log(res);
+        setId(res.data[0]._id);
         setLists(res.data);
       } catch (err) {
         console.log(err);
@@ -37,8 +37,7 @@ const Home = ({ type }) => {
       <Navbar />
       <Featured type={type} setGenre={setGenre} />
       {lists.map((list) => (
-        <List list={list}/>
-        
+        <List list={list} key={id+Math.random()}/>
       ))}
     </div>
   );

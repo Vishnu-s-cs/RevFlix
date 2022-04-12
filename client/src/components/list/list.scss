@@ -1,7 +1,9 @@
 .list {
   width: 100%;
   margin-top: 10px;
-  scroll-behavior: smooth;
+  margin-left: 10px;
+  margin-bottom:30px ;
+ 
   .listTitle {
     color: white;
     font-size: 20px;
@@ -32,12 +34,13 @@
       }
     }
     .container {
-      margin-left: 50px;
+      margin-left: 40px;
       display: flex;
       margin-top: 10px;
       width: max-content;
       transform: translateX(0px);
       transition: all 1s ease;
+      
     }
   }
 }

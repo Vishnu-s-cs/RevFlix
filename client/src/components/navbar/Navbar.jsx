@@ -4,7 +4,6 @@ import "./navbar.scss";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
-
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { dispatch } = useContext(AuthContext);
@@ -18,7 +17,7 @@ const Navbar = () => {
       <div className="container">
         <div className="left">
           <img 
-            src="https://www.linkpicture.com/q/REVFLIX_Logo.png"
+            src="/RevFlix-logo.jpeg"
             alt=""
           />
           <Link to="/" className="link">

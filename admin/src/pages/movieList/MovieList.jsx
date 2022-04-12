@@ -16,7 +16,6 @@ export default function MovieList() {
   const handleDelete = (id) => {
     deleteMovie(id, dispatch);
   };
- console.log(movies);
   const columns = [
     { field: "_id", headerName: "ID", width: 90 },
     {
@@ -44,7 +43,7 @@ export default function MovieList() {
       renderCell: (params) => {
         return (
           <>
-            <Link
+             <Link
               to={{ pathname: "/movie/" + params.row._id, movie: params.row }}
             >
               <button className="productListEdit">Edit</button>

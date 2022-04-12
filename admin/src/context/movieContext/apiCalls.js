@@ -27,7 +27,7 @@ export const getMovies = async (dispatch) => {
 
 //create
 export const createMovie = async (movie, dispatch) => {
-  dispatch(createMovieStart());
+   dispatch(createMovieStart());
   try {
     const res = await axios.post("/movies", movie, {
       headers: {

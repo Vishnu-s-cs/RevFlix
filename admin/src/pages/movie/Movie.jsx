@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import "./movie.css";
 import { Publish } from "@material-ui/icons";
-
-export default function Movie() {
+import React from "react";
+export default function MovieEdit() {
   const location = useLocation();
   const movie = location.movie;
   return (

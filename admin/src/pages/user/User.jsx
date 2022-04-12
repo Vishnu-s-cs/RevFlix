@@ -1,40 +1,38 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./user.css";
 import { Publish } from "@material-ui/icons";
 import React from "react";
-export default function Movie() {
+export default function User() {
   const location = useLocation();
-  const movie = location.movie;
+  const user = location.user;
+  const paymentStatus = user.isPayed.toString();
   return (
     <div className="product">
       <div className="productTitleContainer">
-        <h1 className="productTitle">Movie</h1>
-        <Link to="/newMovie">
-          <button className="productAddButton">Create</button>
-        </Link>
+        <h1 className="productTitle">User</h1>
       </div>
       <div className="productTop">
         <div className="productTopRight">
           <div className="productInfoTop">
-            <img src={movie.img} alt="" className="productInfoImg" />
-            <span className="productName">{movie.title}</span>
+            <img src={user.img} alt="" className="productInfoImg" />
+            <span className="productName">{user.username}</span>
           </div>
           <div className="productInfoBottom">
             <div className="productInfoItem">
               <span className="productInfoKey">id:</span>
-              <span className="productInfoValue">{movie._id}</span>
+              <span className="productInfoValue">{user._id}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">genre:</span>
-              <span className="productInfoValue">{movie.genre}</span>
+              <span className="productInfoKey">Email Id:</span>
+              <span className="productInfoValue">{user.email}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">year:</span>
-              <span className="productInfoValue">{movie.year}</span>
+              <span className="productInfoKey">Join Date(Last Updated Date):</span>
+              <span className="productInfoValue">{user.updatedAt}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">limit:</span>
-              <span className="productInfoValue">{movie.limit}</span>
+              <span className="productInfoKey">Premium status:</span>
+              <span className="productInfoValue">{paymentStatus}</span>
             </div>
           </div>
         </div>
@@ -42,23 +40,15 @@ export default function Movie() {
       <div className="productBottom">
         <form className="productForm">
           <div className="productFormLeft">
-            <label>Movie Title</label>
-            <input type="text" placeholder={movie.title} />
-            <label>Year</label>
-            <input type="text" placeholder={movie.year} />
-            <label>Genre</label>
-            <input type="text" placeholder={movie.genre} />
-            <label>Limit</label>
-            <input type="text" placeholder={movie.limit} />
-            <label>Trailer</label>
-            <input type="file" placeholder={movie.trailer} />
-            <label>Video</label>
-            <input type="file" placeholder={movie.video} />
+            <label>User Name</label>
+            <input type="text" placeholder={user.username} />
+            <label>Email Id</label>
+            <input type="text" placeholder={user.email} />
           </div>
           <div className="productFormRight">
             <div className="productUpload">
               <img
-                src={movie.img}
+                src={user.profilePic}
                 alt=""
                 className="productUploadImg"
               />

@@ -19,10 +19,10 @@ import ListList from "./pages/listList/ListList";
 import List from "./pages/list/List";
 import NewList from "./pages/newList/NewList";
 import MovieList from "./pages/movieList/MovieList";
-import { Movie } from "@material-ui/icons";
 import NewMovie from "./pages/newMovie/NewMovie";
 import UserStats from "./pages/Analytics/userAnalytics";
 import SaleStats from "./pages/Analytics/salesAnalytics";
+import MovieEdit from "./pages/movie/Movie"
 function App() {
   const { user } = useContext(AuthContext);
   return (
@@ -57,7 +57,7 @@ function App() {
                 <MovieList />
               </Route>
               <Route path="/movie/:movieId">
-                <Movie />
+              <MovieEdit />
               </Route>
               <Route path="/newMovie">
                 <NewMovie />
@@ -80,3 +80,4 @@ function App() {
 }
 
 export default App;
+

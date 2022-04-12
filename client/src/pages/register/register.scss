@@ -1,35 +1,135 @@
+// .register {
+//   width: 100vw;
+//   height: 100vh;
+//   background: linear-gradient(
+//       to bottom,
+//       rgba(0, 0, 0, 0) 0%,
+//       rgba(0, 0, 0, 1) 100%
+//     ),
+//     url("https://cdn.hipwallpaper.com/i/98/21/dUyCkp.jpg");
+//   background-size: cover;
+//   position: relative;
+//   .loginButton {
+//     background-color: red;
+//     border: none;
+//     color: white;
+//     border-radius: 5px;
+//     padding: 5px 15px;
+//     font-size: 16px;
+//     font-weight: 500;
+//     cursor: pointer;
+//   }
+//   .top {
+//     .wrapper {
+//       padding: 20px 50px;
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+
+//       .logo {
+//         height: 100px;
+//       }
+
+      
+//     }
+//   }
+
+//   .container {
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     color: white;
+
+
+//     h1 {
+//       font-size: 50px;
+//     }
+
+//     h2 {
+//       margin: 20px;
+//     }
+
+//     p {
+//       font-size: 20px;
+//     }
+
+//     .input {
+//       width: 50%;
+//       background-color: white;
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+//       margin-top: 20px;
+//       height: 50px;
+//       border-radius: 5px;
+      
+//     form {
+//       width: 300px;
+//       height: 300px;
+//       padding: 30px;
+//       border-radius: 5px;
+//       background-color: var(--main-color);
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: space-around;}
+//       input{
+//           flex: 9;
+//           height: 100%;
+//           // border: none;
+//           // padding: 0 10px;
+//       }
+
+//       .registerButton{
+//           flex: 3;
+//           height: 100%;
+//           background-color: red;
+//           border: none;
+//           color: white;
+//           font-size: 22px;
+//           cursor: pointer;
+//       }
+//     }
+//   }
+// }
 .register {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 1) 100%
-    ),
-    url("https://cdn.hipwallpaper.com/i/98/21/dUyCkp.jpg");
+  // width: 100vw;
+  // height: 100vh;
+  // background: linear-gradient(
+  //     to bottom,
+  //     rgba(0, 0, 0, 0) 0%,
+  //     rgba(0, 0, 0, 1) 100%
+  //   );
+    // url("https://assets8.lottiefiles.com/packages/lf20_ieta6ueq.json");
   background-size: cover;
   position: relative;
-
-  .top {
-    .wrapper {
-      padding: 20px 50px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      .logo {
-        height: 40px;
-      }
-
-      .loginButton {
-        background-color: red;
+  .loginButton {
+    margin: 10px;
+        background-color: rgb(228, 152, 11);
         border: none;
-        color: white;
+        color: rgb(19, 18, 18);
         border-radius: 5px;
         padding: 5px 15px;
         font-size: 16px;
         font-weight: 500;
         cursor: pointer;
+      }
+  .top {
+    
+    .wrapper {
+      padding: 20px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      
+
+      .logo {
+        height: 100px;
       }
     }
   }
@@ -44,45 +144,48 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: rgb(12, 12, 12);
+    
 
-    h1 {
-      font-size: 50px;
-    }
-
-    h2 {
-      margin: 20px;
-    }
-
-    p {
-      font-size: 20px;
-    }
-
-    .input {
-      width: 50%;
-      background-color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    form {
       margin-top: 20px;
-      height: 50px;
+      width: 300px;
+      height: 200px;
+      padding: 30px;
       border-radius: 5px;
+      background-color: var(--main-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
 
-      input{
-          flex: 9;
-          height: 100%;
-          border: none;
-          padding: 0 10px;
+      input {
+        height: 40px;
+        border-radius: 5px;
+        background-color: gray;
+        color: white;
+        padding-left: 10px;
+
+        &::placeholder {
+          color: lightgray;
+        }
       }
 
-      .registerButton{
-          flex: 3;
-          height: 100%;
-          background-color: red;
-          border: none;
+      button {
+        height: 40px;
+        border-radius: 5px;
+        background-color: rgb(228, 152, 11);
+        color: rgb(12, 12, 12);
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      span {
+        color: lightgray;
+        b {
           color: white;
-          font-size: 22px;
-          cursor: pointer;
+        }
       }
     }
   }

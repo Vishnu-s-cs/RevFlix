@@ -10,7 +10,7 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-        <img className="logo" src="https://www.linkpicture.com/q/REVFLIX_Logo.png" alt="" />
+        <img className="logo" src="/RevFlix-logo.jpeg" alt="" />
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">

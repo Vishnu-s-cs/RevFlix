@@ -1,10 +1,16 @@
 const router = require("express").Router();
 const Movie = require("../models/Movie");
 const verify = require("../verifyToken");
-
+const Stripe = require("stripe")
+const dotenv = require("dotenv");
+dotenv.config();
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY,{
+    apiVersion:"2020-08-27"
+})
 //CREATE
 
 router.post("/", verify, async (req, res) => {
+  
   if (req.user.isAdmin) {
     const newMovie = new Movie(req.body);
     try {
@@ -57,6 +63,7 @@ router.delete("/:id", verify, async (req, res) => {
 //GET
 
 router.get("/find/:id", verify, async (req, res) => {
+  
   try {
     const movie = await Movie.findById(req.params.id);
     res.status(200).json(movie);

@@ -13,8 +13,13 @@ const MovieSchema = new mongoose.Schema(
     limit: { type: Number },
     genre: { type: String },
     isSeries: { type: Boolean, default: false },
+    access: { type: String,
+    enum:["Basic","Premium"],
+    required: true,
+  }
   },
-  { timestamps: true }
+  { timestamps: true },
+  
 );
 
 module.exports = mongoose.model("Movie", MovieSchema);

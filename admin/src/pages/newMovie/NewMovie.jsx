@@ -1,9 +1,10 @@
+import React from "react";
 import { useContext, useState } from "react";
 import "./newMovie.css";
 import storage from "../../firebase";
 import { createMovie } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
-import React from 'react';
+import animationData from '../../lotties/102374-morph-loading.json';
 export default function NewMovie() {
   const [movie, setMovie] = useState(null);
   const [img, setImg] = useState(null);
@@ -12,7 +13,6 @@ export default function NewMovie() {
   const [trailer, setTrailer] = useState(null);
   const [video, setVideo] = useState(null);
   const [uploaded, setUploaded] = useState(0);
-  const [progress,setProgress]=useState(0);
   const { dispatch } = useContext(MovieContext);
 
   const handleChange = (e) => {
@@ -26,11 +26,10 @@ export default function NewMovie() {
       const uploadTask = storage.ref(`/items/${fileName}`).put(item.file);
       uploadTask.on(
         "state_changed",
-       (snapshot) => {
-       const progress =
-            Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
-          setProgress(progress)
         },
         (error) => {
           console.log(error);
@@ -47,7 +46,8 @@ export default function NewMovie() {
     });
   };
 
-  const handleUpload =(e) => {
+  const handleUpload = (e) => {
+    
     e.preventDefault();
     upload([
       { file: img, label: "img" },
@@ -55,10 +55,12 @@ export default function NewMovie() {
       { file: imgSm, label: "imgSm" },
       { file: trailer, label: "trailer" },
       { file: video, label: "video" },
-    ]);createMovie(movie, dispatch);
+    ]);
+    
   };
-console.log(movie);
+
   const handleSubmit = (e) => {
+    
     e.preventDefault();
     createMovie(movie, dispatch);
   };
@@ -171,19 +173,18 @@ console.log(movie);
             onChange={(e) => setVideo(e.target.files[0])}
           />
         </div>
-        {/* {hi().progress} */}
+       
         {uploaded === 5 ? (
           <button className="addProductButton" onClick={handleSubmit}>
             Create
           </button>
         ) : (
+          
           <button className="addProductButton" onClick={handleUpload}>
             Upload
           </button>
         )}
       </form>
-      <h2 className="hero">Uploading done {progress}%</h2>
     </div>
-    
   );
 }

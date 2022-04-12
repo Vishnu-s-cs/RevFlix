@@ -4,8 +4,8 @@ import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
-import Pay from "./payment/pay";
 import Success from "./payment/success";
+import Plan from "./pages/PayPlans/paymentPlans"
 import {BrowserRouter as Router,
   Switch,
   Route,
@@ -19,6 +19,8 @@ const App = () => {
   return (
     <Router>
       <Switch>
+        <Route path="/success"><Success/></Route>
+         <Router path="/subscriptions"><Plan/></Router>
         <Route exact path="/">
           {user ? <Home /> : <Redirect to="/register" />}
         </Route>
@@ -31,14 +33,9 @@ const App = () => {
             <Route path="/movies">
               <Home type="movie" />
             </Route>
-            <Route path="/pay">
-              <Pay/>
-
-            </Route>
             <Route path="/success">
               <Success/>
-
-            </Route>
+               </Route>
             <Route path="/series">
               <Home type="series" />
             </Route>

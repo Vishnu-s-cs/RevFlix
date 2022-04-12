@@ -13,7 +13,9 @@
     color: white;
     display: flex;
     align-items: center;
-
+    padding-top: 50px;
+    padding-left: 100px;
+    
     select {
       cursor: pointer;
       background-color: var(--main-color);
@@ -21,6 +23,7 @@
       color: white;
       margin-left: 20px;
       padding: 5px;
+      
     }
   }
 
@@ -50,6 +53,7 @@
 
     .desc {
       margin: 20px 0px;
+      color: rgb(255, 255, 255);
 
       @include mobile {
         width: 60vw;

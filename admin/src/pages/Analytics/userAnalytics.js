@@ -3,7 +3,7 @@ import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { login } from "../../context/authContext/apiCalls";
-import React, { Component }  from 'react';
+import React from 'react';
 export default function UserStats(){
     const MONTHS = useMemo(
         () => [

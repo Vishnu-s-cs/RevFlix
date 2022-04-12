@@ -1,16 +1,16 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon app/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vishnu <vishnuvichuz198@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "crypto-js": "^4.1.1",
     "dotenv": "^14.3.2",
@@ -24,5 +24,7 @@
     "request": "^2.88.2",
     "stripe": "^8.207.0",
     "uniqid": "^5.4.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
