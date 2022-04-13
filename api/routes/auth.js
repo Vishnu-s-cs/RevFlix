@@ -70,10 +70,12 @@ router.post("/login", async (req, res) => {
     const {password,...info } = user._doc;
 
      res.status(200).json({ ...info, accessToken, subscriptions});
-    
+  
   } catch(err){
-    // res.status(500).json(err);
+    res.status(500).json(err);
+   
     console.log("login failed/invalid credentials");
+    
   }
   
 });

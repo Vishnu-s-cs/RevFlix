@@ -1,13 +1,13 @@
 import React from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import { Container } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { ButtonGroup } from "@material-ui/core";
 import { FormControlLabel } from "@material-ui/core";
 import "./paymentPlans.scss"
-import { Cancel,Star,Subscriptions} from "@material-ui/icons";
+import { Cancel,Star,Subscriptions,PlayCircleFilledWhiteOutlined, ReplayOutlined} from "@material-ui/icons";
 import {Radio} from "@material-ui/core"
 import { TextField,makeStyles,ThemeProvider,createMuiTheme} from "@material-ui/core";
 import { yellow } from "@material-ui/core/colors";
@@ -93,11 +93,15 @@ function ButtonStyled(){
         console.log(err);
        }
       
-    };
+      
+    };const goBack = async()=>{
+      await history.push("/register")
+      await  window.location.reload(false);
+    }
     return(
-     
+     <div className="outer">
       <ThemeProvider theme={theme}>
-      <Container maxWidth="sm" align="center" className="container">
+      <Container  align="center" className="container">
      <>
     {/* <AppBar>
        <Toolbar>
@@ -128,7 +132,7 @@ function ButtonStyled(){
        <><FormControlLabel control={ <Radio
        checked={priceId === 'price_1KZZI3SEIuQNw8aUY5njN6Lf'}
        onChange={handleChange}
-       icon={<Star/>}
+       icon={<PlayCircleFilledWhiteOutlined color="primary"/>}
        checkedIcon={<Subscriptions/>}
        value="price_1KZZI3SEIuQNw8aUY5njN6Lf"
        name="radio-buttons"
@@ -136,7 +140,7 @@ function ButtonStyled(){
      /> }label="Premium" /><FormControlLabel control={ <Radio
       checked={priceId === 'price_1KZZFtSEIuQNw8aUYXKyMkQ7'}
       onChange={handleChange}
-      icon={<Star/>}
+      icon={<PlayCircleFilledWhiteOutlined color="primary"/>}
        checkedIcon={<Subscriptions/>}
       value="price_1KZZFtSEIuQNw8aUYXKyMkQ7"
       name="radio-buttons"
@@ -151,8 +155,8 @@ function ButtonStyled(){
            className="button1" onClick={()=>{createSession(email,priceId)}}>Subscribe</Button> 
        <Button
     startIcon={<Cancel/>}
-        color="primary" >Cancel</Button>
-       </ButtonGroup></div></></Container></ThemeProvider>)
+        color="primary" onClick={()=>{goBack()}}>Cancel</Button>
+       </ButtonGroup></div></></Container></ThemeProvider></div>)
 
 }
 export default Plan

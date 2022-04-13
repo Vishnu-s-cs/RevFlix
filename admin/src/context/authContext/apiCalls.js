@@ -8,6 +8,7 @@ export const login = async (user, dispatch) => {
     res.data.isAdmin && dispatch(loginSuccess(res.data));
 
   } catch (err) {
+    
     dispatch(loginFailure());
   }
 };

@@ -1,6 +1,11 @@
-
+ .outer{
+     background-color: black;
+     color: white;
+    padding: 40px;
+    padding-bottom: 200px;
   .container{ 
       margin-top: 70px; 
+     
       .logo{
           height: 100px;
           width: 100px;
@@ -16,12 +21,12 @@
     .paper{
         height:250px;
         width: 200px;
-        background-color:rgb(162, 231, 165);
+        background-color:rgb(197, 93, 52);
         margin-right:10px;
         padding-top: 10px;
         box-shadow: 0.1rem 0.1rem 1rem rgba(19, 20, 19, 0.342);
         margin-left: 10px;
-        color: rgb(228, 152, 11);
+        color: rgb(255, 255, 255);
         .Title{
             color: black;
             padding-bottom: 5px;
@@ -43,7 +48,7 @@
         padding-top: 10px;
         box-shadow: 0.1rem 0.1rem 1rem rgba(19, 20, 19, 0.342);
         margin-left: 10px;
-        color: rgb(228, 152, 11);
+        color: rgb(243, 241, 237);
         .Title{
             color: black;
             padding-bottom: 5px;
@@ -71,12 +76,24 @@
     cursor: pointer;
     background-color:  rgb(228, 152, 11);
     margin-right: 10px;
+    .radio{
+        color: white;
+        border-color: white;
+    }
+   
 }
+
 .secondary{
     border-color:  rgb(228, 152, 11);
     }
 .button2{
     background-color: rgb(212, 210, 181);
 }
+.link{
+    text-decoration: none;
+    background-color: rgb(173, 22, 22);
+    border-radius: 5px ;
+    padding-right: 4px;
+}
 
-}}
+}}}

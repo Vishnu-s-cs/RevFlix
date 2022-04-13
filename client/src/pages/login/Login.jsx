@@ -41,7 +41,7 @@ export default function Login() {
             Sign In
           </button>
           <span>
-            New to RevFlix? <b><Link to="/register" className="link">Sign up now.</Link></b>
+            New to RevFlix? <b><Link to="/register" className="link">Sign up now.</Link> Not subscribed? <Link to="/subscriptions" className="link">Subscribe Now.</Link></b>
           </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a
