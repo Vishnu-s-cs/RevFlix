@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app/index.js"
+    "start": "node app/index.js"
   },
   "keywords": [],
   "author": "Vishnu <vishnuvichuz198@gmail.com>",
@@ -26,5 +26,8 @@
     "uniqid": "^5.4.0"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "node api hosted on heroku",
+  "engines": {
+    "node" : "16.13.2"
+  }
 }
