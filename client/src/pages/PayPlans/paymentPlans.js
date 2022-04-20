@@ -126,7 +126,7 @@ function ButtonStyled(){
      </Grid>
      
      <div className="main"> 
-     <TextField variant="outlined" type="email" placeholder="email" color="secondary" onChange={(e) => setEmail(e.target.value)}></TextField> 
+     <TextField variant="outlined" type="email" placeholder="email" color="secondary" className="textField"  onChange={(e) => setEmail(e.target.value)}></TextField> 
        <div>
        
        <><FormControlLabel control={ <Radio
