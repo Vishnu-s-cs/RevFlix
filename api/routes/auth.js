@@ -52,7 +52,7 @@ router.post("/login", async (req, res) => {
     // res.json(subscriptions);
     if(!user || !subscriptions.data.length )
     {
-   res.status(401).json("Wrong password or username!");
+   res.status(401).json("Wrong email!");
   }
     
     const bytes =CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
@@ -72,7 +72,10 @@ router.post("/login", async (req, res) => {
      res.status(200).json({ ...info, accessToken, subscriptions});
   
   } catch(err){
-    res.status(500).json(err);
+    if(!user){
+      console.log(hello);
+    }
+    res.status(500).json("err");
    
     console.log("login failed/invalid credentials");
     
