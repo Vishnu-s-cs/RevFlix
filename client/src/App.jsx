@@ -42,7 +42,7 @@ const App = () => {
             <Route path="/watch">
               <Watch />
             </Route>
-            <Route path="/book">
+            <Route path="/review">
               <Book />
             </Route>
           </>

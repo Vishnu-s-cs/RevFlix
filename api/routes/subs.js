@@ -15,8 +15,9 @@ router.get("/prices",async (req,res)=>{
  }) 
  res.json(prices);
 })
-router.post("/session",async(req,res)=>{
+router.post("/session",async(req,res)=>{try{
     const customer = await User.findOne({ email: req.body.email });
+   
     const session= await stripe.checkout.sessions.create({
         mode:"subscription",
         payment_method_types:["card"],
@@ -31,6 +32,8 @@ router.post("/session",async(req,res)=>{
         cancel_url:"http://localhost:3000/subscriptions",
         customer: customer.customerId,
     });
-    res.json(session);
+    res.json(session);}catch(err){
+        res.status(401).json("pls register")
+    }
 })
 module.exports = router;

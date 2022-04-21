@@ -91,6 +91,7 @@ function ButtonStyled(){
     }
       catch(err){
         console.log(err);
+        alert("please register")
        }
       
       

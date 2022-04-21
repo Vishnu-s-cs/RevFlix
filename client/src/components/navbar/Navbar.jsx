@@ -16,10 +16,12 @@ const Navbar = () => {
     <div className={isScrolled ? "navbar scrolled" : "navbar"}>
       <div className="container">
         <div className="left">
+        <Link to="/" className="link">
           <img 
             src="/RevFlix-logo.jpeg"
             alt=""
           />
+          </Link>
           <Link to="/" className="link">
             <span>Homepage</span>
           </Link>
@@ -34,7 +36,7 @@ const Navbar = () => {
         </div>
         <div className="right">
           <Search className="icon" />
-          <span>KID</span>
+          
           <Notifications className="icon" />
           <img
             src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"

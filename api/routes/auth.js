@@ -40,6 +40,7 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     
+    
     const subscriptions = await stripe.subscriptions.list(
       {
         customer: user.customerId,
@@ -72,10 +73,7 @@ router.post("/login", async (req, res) => {
      res.status(200).json({ ...info, accessToken, subscriptions});
   
   } catch(err){
-    if(!user){
-      console.log(hello);
-    }
-    res.status(500).json("err");
+    res.status(500).json(err);
    
     console.log("login failed/invalid credentials");
     
