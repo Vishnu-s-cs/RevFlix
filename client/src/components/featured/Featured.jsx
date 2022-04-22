@@ -56,11 +56,7 @@ var a
         <img src={movie.imgTitle} alt="" />
         <span className="desc">{movie.desc}</span>
         <div className="buttons">
-<<<<<<< HEAD
           <Link to={{ pathname: "/watch", movie: movie }}>
-=======
-          <Link to="/watch">
->>>>>>> 3be765ecf0f18aa0c711fb13c84fcfc4aaee5269
           <button className="play">
             <PlayArrow />
             <span>Play</span>
