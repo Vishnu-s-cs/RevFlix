@@ -12,9 +12,11 @@ export default function Book(){
       <div className="info">
         <img src={movie.imgTitle} alt="" />
         <span className="desc">{movie.desc}</span>
+        <h4>Rating</h4>
       </div>
+     
       <div>
-        <h4>Review</h4>
+       
       </div>
     </div>
     </div>
