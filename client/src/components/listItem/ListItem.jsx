@@ -45,7 +45,7 @@ export default function ListItem({ index, item }) {
             <video src={movie.trailer} autoPlay={true} muted loop />
             <div className="itemInfo">
               <div className="icons">
-                <Link to={{ pathname: "/watch", movie: movie }}>
+                <Link to={{ pathname: "/watch", movie: movie }} className="link">
                 <PlayArrow className="icon" /></Link>
                 <Add className="icon" />
                 <ThumbUpAltOutlined className="icon" />
