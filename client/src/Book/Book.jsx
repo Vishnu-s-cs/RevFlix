@@ -14,11 +14,7 @@ export default function Book(){
         <span className="desc">{movie.desc}</span>
       </div>
       <div>
-<<<<<<< HEAD
-        
-=======
         <h4>Review</h4>
->>>>>>> d33451b91b1827504f45dfdc909d9f1e89034449
       </div>
     </div>
     </div>
