@@ -13,6 +13,9 @@ export default function Book(){
         <img src={movie.imgTitle} alt="" />
         <span className="desc">{movie.desc}</span>
       </div>
+      <div>
+        <h4>Review</h4>
+      </div>
     </div>
     </div>
    )
