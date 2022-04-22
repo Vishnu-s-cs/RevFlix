@@ -4,7 +4,7 @@ import "./home.scss";
 import List from "../../components/list/List";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import Footer from "../../components/Footer/footer"
 const Home = ({ type }) => { 
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
@@ -39,7 +39,10 @@ const Home = ({ type }) => {
       {lists.map((list) => (
         <List list={list} key={id+Math.random()}/>
       ))}
-    </div>
+
+<div><Footer/></div>
+      
+    </div> 
   );
 };
 
