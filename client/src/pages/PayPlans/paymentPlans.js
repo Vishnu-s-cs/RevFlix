@@ -67,7 +67,7 @@ function ButtonStyled(){
       
     }, [])
     const fetchPrices = async()=>{try{
-      const{data: res} = await axios.get("http://localhost:8800/api/subs/prices"
+      const{data: res} = await axios.get("subs/prices"
       //  {
       //   headers: {
       //     token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
@@ -78,7 +78,7 @@ function ButtonStyled(){
         catch(err){console.log(err);}
     }
     const createSession = async(email,priceId) =>{try {
-      const {data: res}= await axios.post("http://localhost:8800/api/subs/session",
+      const {data: res}= await axios.post("subs/session",
        {
          email,
         priceId,
