@@ -1,5 +1,5 @@
-import Movie from "../models/Movie";
-import asyncHandler from 'express-async-handler'
+const Movie = require("../models/Movie");
+const asyncHandler = require("express-async-handler");
 const createMovieReview = asyncHandler(async (req, res) => {
     const { rating, comment } = req.body
   
@@ -33,7 +33,6 @@ const createMovieReview = asyncHandler(async (req, res) => {
       await movie.save()
       res.status(201).json({ message: 'Review added' })
     } else {
-      res.status(404)
-      throw new Error('Movie not found')
+      res.status(404).json('Movie not found');
     }
   })

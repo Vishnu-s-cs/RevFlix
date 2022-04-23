@@ -30,7 +30,7 @@ export default function ListItem({ index, item }) {
     };
     getMovie();
   }, [item]);
-
+ console.log(item);
   return (
     <Link to={{ pathname: "/review", movie: movie }}>
       <div

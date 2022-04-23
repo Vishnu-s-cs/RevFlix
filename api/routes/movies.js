@@ -1,5 +1,4 @@
 const router = require("express").Router();
-import createMovieReview from "../controllers/reviewController"
 const Movie = require("../models/Movie");
 const verify = require("../verifyToken");
 const Stripe = require("stripe")
@@ -118,6 +117,40 @@ router.get("/", verify, async (req, res) => {
       res.status(500).json(err);
     }
 });
-router.route('/:id/reviews').post(createMovieReview)
+router.put('/reviews/:id',async(req,res)=>{
+  const { rating, comment } = req.body
+  
+    const movie = await Movie.findById(req.params.id)
+  
+    if (movie) {
+    //   const alreadyReviewed = movie.reviews.find(
+    //     (r) => r.user.toString() === req.user._id.toString()
+    //   )
+  
+    //   if (alreadyReviewed) {
+    //     res.status(400)
+    //     throw new Error('Movie already reviewed')
+    //   }
+  
+      const review = {
+        name: req.body.name,
+        rating: Number(rating),
+        comment,
+      }
+  
+      movie.reviews.push(review)
+  
+      movie.numReviews = movie.reviews.length
+  
+      movie.rating =
+        movie.reviews.reduce((acc, item) => item.rating + acc, 0) /
+        movie.reviews.length
+  
+      await movie.save()
+      res.status(201).json({ message: 'Review added' })
+    } else {
+      res.status(404).json('Movie not found');
+    }
+})
 
 module.exports = router;
