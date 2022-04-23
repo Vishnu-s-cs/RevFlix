@@ -1,4 +1,5 @@
 const router = require("express").Router();
+import createMovieReview from "../controllers/reviewController"
 const Movie = require("../models/Movie");
 const verify = require("../verifyToken");
 const Stripe = require("stripe")
@@ -117,5 +118,6 @@ router.get("/", verify, async (req, res) => {
       res.status(500).json(err);
     }
 });
+router.route('/:id/reviews').post(createMovieReview)
 
 module.exports = router;

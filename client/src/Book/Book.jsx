@@ -1,6 +1,7 @@
 import "./Book.scss";
 import Navbar from "../components/navbar/Navbar";
 import { Link, useLocation } from "react-router-dom";
+import Rating from "./rating"
 export default function Book(){
     const location = useLocation();
   const movie = location.movie;
