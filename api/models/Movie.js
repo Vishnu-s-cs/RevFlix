@@ -15,7 +15,7 @@ const MovieSchema = new mongoose.Schema(
     isSeries: { type: Boolean, default: false },
     rating:{type:Number},
     reviews:[{type: new mongoose.Schema({name: { type: String },
-    rating: { type: Number, required: true },
+    rating: { type: Number},
     comment: { type: String}},{timestamps: true})}],
   },
   { timestamps: true }

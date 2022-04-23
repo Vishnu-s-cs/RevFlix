@@ -13,7 +13,7 @@ export default function Book(){
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState('')
  const submitHandler = ()=>{
-   axios.put('/reviews'+movie._id)
+  //  axios.put('/reviews'+movie._id)
  }
    return( 
      <div className="main">
@@ -23,6 +23,7 @@ export default function Book(){
       <div className="info">
         <img src={movie.imgTitle} alt="" />
         <span className="desc">{movie.desc}</span>
+        <div className="review">
         <h2>Reviews</h2>
             {movie.reviews.length === 0 && <Message>No Reviews</Message>}
                <ListGroup variant='flush'>
@@ -38,9 +39,9 @@ export default function Book(){
                  
                    
                      <form className="form" onSubmit={submitHandler}>
-                     <div>
+                     <div className="h2">
                        <h2>Write a customer review</h2>
-                     </div>
+                       </div>
                      <div>
                        <label htmlFor="rating">Rating</label>
                        <select id="rating" value={rating}
@@ -50,7 +51,7 @@ export default function Book(){
                            <option value="2">2- Fair</option>
                            <option value="3">3- Good</option>
                            <option value="4">4- Very good</option>
-                           <option value="5">5- Excelent</option>
+                           <option value="5">5- Excellent</option>
 
                        </select>
                      </div>
@@ -83,6 +84,6 @@ export default function Book(){
        
       </div>
     </div>
-    </div>
+    </div></div>
    )
 }

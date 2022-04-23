@@ -9,6 +9,9 @@
     height: 100%;
     object-fit: cover;
   }
+  .h2{
+    padding: 10px;
+  }
 
   .info {
     width: 35%;
@@ -18,7 +21,14 @@
     color: white;
     display: flex;
     flex-direction: column;
-
+    position: relative;
+    .review{
+      position: absolute;
+    margin-top: 10rem;
+    margin-left: 58vw;
+    padding-top: 100px;
+    width: 17vw;
+    }
     img {
       width: 20vw;
       margin-top: 100px;
@@ -26,7 +36,8 @@
 
     .desc {
       margin: 20px 0px;
-      color: rgb(255, 255, 255);
+      color: white;
+      font-weight: bolder;
 
       @include mobile {
         width: 60vw;
