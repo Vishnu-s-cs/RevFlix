@@ -21,6 +21,7 @@
     "fontsource-roboto": "^4.0.0",
     "material-table": "^1.69.2",
     "material-ui-form": "^1.0.0-alpha.26",
+    "mui-form": "^1.1.16",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.3.0",

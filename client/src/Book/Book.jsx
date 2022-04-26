@@ -15,6 +15,7 @@ export default function Book(){
  const submitHandler = ()=>{
   //  axios.put('/reviews'+movie._id)
  }
+ console.log(movie.reviews);
    return( 
      <div className="main">
          <Navbar></Navbar>
@@ -29,10 +30,10 @@ export default function Book(){
                <ListGroup variant='flush'>
                  {movie.reviews.map((review) => (
                    <ListGroup.Item key={review._id}>
-                     <strong>{movie.reviews.name}</strong>
-                     <Rating value={movie.reviews.rating} />
-                     <p>{movie.reviews.createdAt.substring(0, 10)}</p>
-                     <p>{movie.reviews.comment}</p>
+                     <strong>{review.name}</strong>
+                     <Rating value={review.rating} />
+                     <p>{review.createdAt}</p>
+                     <p>{review.comment}</p>
                    </ListGroup.Item>
                  ))}
                  <ListGroup.Item>
@@ -73,8 +74,7 @@ export default function Book(){
                      
                    </form>
                      
-                  <Message>Please <Link to='/login'
-                   >sign in</Link>to write a review</Message>
+                 
                    
                  </ListGroup.Item>
               </ListGroup>

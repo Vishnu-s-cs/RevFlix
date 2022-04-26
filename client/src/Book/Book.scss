@@ -24,10 +24,13 @@
     position: relative;
     .review{
       position: absolute;
-    margin-top: 10rem;
-    margin-left: 58vw;
+    margin-top: 33px;
+    margin-left: 35vw;
     padding-top: 100px;
-    width: 17vw;
+    width: 50vw;
+    @include mobile {
+      margin-top: 90px;
+    }
     }
     img {
       width: 20vw;
