@@ -4,7 +4,6 @@ import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
-import Success from "./payment/success";
 import Plan from "./pages/PayPlans/paymentPlans"
 import {BrowserRouter as Router,
   Switch,
@@ -19,7 +18,6 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/success"><Success/></Route>
          <Router path="/subscriptions"><Plan/></Router>
         <Route exact path="/">
           {user ? <Home /> : <Redirect to="/register" />}
@@ -33,9 +31,6 @@ const App = () => {
             <Route path="/movies">
               <Home type="movie" />
             </Route>
-            <Route path="/success">
-              <Success/>
-               </Route>
             <Route path="/series">
               <Home type="series" />
             </Route>

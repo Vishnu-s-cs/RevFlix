@@ -24,13 +24,13 @@
     position: relative;
     .review{
       position: absolute;
-    margin-top: 33px;
-    margin-left: 35vw;
+      margin-left: 39vw;
     padding-top: 100px;
     width: 50vw;
     @include mobile {
       margin-top: 90px;
     }
+    
     }
     img {
       width: 20vw;
@@ -45,10 +45,31 @@
       @include mobile {
         width: 60vw;
       }
+      .items{
+        padding: 20px;
+        width: 100%;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom:30px ;
+      }
     }
   }
 }
 .fade_bottom{
   height: 7.4rem;
   background-image: linear-gradient(180deg,transparent,rgba(37,37,37,.61),#111);
+}
+.paper{
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  opacity: .5;
+  p{
+    opacity: 1;
+  }
+  strong{
+    opacity: 2;
+  }
 }

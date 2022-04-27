@@ -3,10 +3,10 @@ import Navbar from "../components/navbar/Navbar";
 import { Link, useLocation } from "react-router-dom";
 import Rating from "./rating";
 import {FaStar} from 'react-icons/fa'
-import { ListGroup } from "react-bootstrap";
 import { useState,useEffect } from "react";
 import Message from "../components/message";
 import axios from "axios";
+import { Grid, Paper } from "@material-ui/core";
 export default function Book(){
     const location = useLocation();
   const movie = location.movie;
@@ -26,19 +26,22 @@ export default function Book(){
         <span className="desc">{movie.desc}</span>
         <div className="review">
         <h2>Reviews</h2>
+        <Grid container justify="center" className="items"> 
             {movie.reviews.length === 0 && <Message>No Reviews</Message>}
-               <ListGroup variant='flush'>
+              
                  {movie.reviews.map((review) => (
-                   <ListGroup.Item key={review._id}>
+                   <Paper key={review._id} className="paper">
                      <strong>{review.name}</strong>
                      <Rating value={review.rating} />
                      <p>{review.createdAt}</p>
                      <p>{review.comment}</p>
-                   </ListGroup.Item>
-                 ))}
-                 <ListGroup.Item>
-                 
+                     </Paper>
                    
+                 ))}
+                 </Grid>
+                 
+                 
+                   <Grid>
                      <form className="form" onSubmit={submitHandler}>
                      <div className="h2">
                        <h2>Write a customer review</h2>
@@ -73,11 +76,10 @@ export default function Book(){
                      </div>
                      
                    </form>
-                     
+                   </Grid>
                  
                    
-                 </ListGroup.Item>
-              </ListGroup>
+               
       </div>
      
       <div>
