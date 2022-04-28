@@ -26,9 +26,10 @@
       // position: absolute;
       margin-left: 39vw;
     // padding-top: 20px;
-    margin-top: -314px;
+    margin-top: -32rem;
     margin-bottom: 65px;
     width: 50vw;
+    height: 26vw;
     @include mobile {
       margin-top: -900px;
     }
@@ -43,6 +44,7 @@
       margin: 20px 0px;
       color: white;
       font-weight: bolder;
+      padding-bottom: 50px;
 
       @include mobile {
         width: 60vw;
