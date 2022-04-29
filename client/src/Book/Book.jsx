@@ -13,13 +13,17 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { TextField,ButtonGroup,Button} from "@material-ui/core";
+import { Cancel,Done } from "@material-ui/icons";
 export default function Book(){
     const location = useLocation();
   const movie = location.movie;
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState('')
-const submitHandler = ()=>{
-  //  axios.put('/reviews'+movie._id)
+
+const reset = ()=>{
+  setRating(0);
+  setComment('');
 }
 const handleChange = (event) => {
   setRating(event.target.value);
@@ -38,6 +42,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 const classes = useStyles();
+const createReview = async()=>{
+  try {
+    await axios.post("auth/register", { rating,comment});
+    // await login({ email, password }, dispatch);
+       await alert('review added succesfully')
+  } catch (err) {console.log(err);}
+};
   return( 
     <><div className="main">
       <Navbar></Navbar>
@@ -65,25 +76,9 @@ const classes = useStyles();
 
     </div>
     </div>
-    <div className="form">
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-standard-label">Age</InputLabel>
-        <Select
-          labelId="demo-simple-select-standard-label"
-          id="demo-simple-select-standard"
-          value={rating}
-          onChange={handleChange}
-          label="Age"
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
+    <div className="form"><h2>Write a review</h2>
       <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
+        
         <InputLabel id="demo-simple-select-filled-label">Rating</InputLabel>
         <Select
           labelId="demo-simple-select-filled-label"
@@ -94,13 +89,25 @@ const classes = useStyles();
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
+          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={2}>2</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+          <MenuItem value={3}>4</MenuItem>
+          <MenuItem value={3}>5</MenuItem>
+        </Select><br /><FormControl>
+        <TextField variant="outlined" value={comment}  placeholder="comment" color="primary" className="textField"  onChange={(e) => setComment(e.target.value)}></TextField> 
+        </FormControl><br />
+        <ButtonGroup className="button"  variant="contained">
+    <Button
+    startIcon={<Done/>}
+           className="button1" onClick={()=>{createReview(rating,comment)}}>Subscribe</Button> 
+       <Button
+    startIcon={<Cancel/>}
+        color="primary" onClick={()=>{reset()}}>Cancel</Button>
+       </ButtonGroup>
       </FormControl>
     </div>
-                     
+              
     </>
 )
 }
