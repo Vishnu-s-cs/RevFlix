@@ -57,6 +57,8 @@ const createReview = async()=>{
       <div className="info">
         <img src={movie.imgTitle} alt="" />
         <span className="desc">{movie.desc}</span>
+        Average: <br />
+        <Rating value={movie.rating} />
         <div className="review">
         <h2>Reviews</h2>
         <Grid container justify="center" className="items"> 
@@ -95,8 +97,8 @@ const createReview = async()=>{
           <MenuItem value={1}>1</MenuItem>
           <MenuItem value={2}>2</MenuItem>
           <MenuItem value={3}>3</MenuItem>
-          <MenuItem value={3}>4</MenuItem>
-          <MenuItem value={3}>5</MenuItem>
+          <MenuItem value={4}>4</MenuItem>
+          <MenuItem value={5}>5</MenuItem>
         </Select><br /><FormControl>
         <TextField variant="outlined" value={comment}  placeholder="comment" color="primary" className="textField"  onChange={(e) => setComment(e.target.value)}></TextField> 
         </FormControl><br />
