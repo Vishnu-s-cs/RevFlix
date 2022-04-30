@@ -20,7 +20,7 @@ export default function Book(){
   const movie = location.movie;
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState('')
-
+  const[name,setName]=useState('')
 const reset = ()=>{
   setRating(0);
   setComment('');
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
 const classes = useStyles();
 const createReview = async()=>{
   try {
-    await axios.post("auth/register", { rating,comment});
+    await axios.put("movies/reviews/"+`${movie._id}`, { name,rating,comment});
     // await login({ email, password }, dispatch);
        await alert('review added succesfully')
   } catch (err) {console.log(err);}
@@ -77,8 +77,11 @@ const createReview = async()=>{
     </div>
     </div>
     <div className="form"><h2>Write a review</h2>
+    <FormControl>
+        <TextField variant="outlined" value={name}  placeholder="name" color="primary" className="textField1"  onChange={(e) => setName(e.target.value)}></TextField> 
+        </FormControl><br />
       <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-        
+      
         <InputLabel id="demo-simple-select-filled-label">Rating</InputLabel>
         <Select
           labelId="demo-simple-select-filled-label"
@@ -100,7 +103,7 @@ const createReview = async()=>{
         <ButtonGroup className="button"  variant="contained">
     <Button
     startIcon={<Done/>}
-           className="button1" onClick={()=>{createReview(rating,comment)}}>Subscribe</Button> 
+           className="button1" onClick={()=>{createReview(rating,comment)}}>Add Review</Button> 
        <Button
     startIcon={<Cancel/>}
         color="primary" onClick={()=>{reset()}}>Cancel</Button>
