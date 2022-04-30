@@ -1,7 +1,7 @@
 @import "../app.scss";
 
 .featured {
-  height: 78vh;
+  height: 83vh;
   position: relative;
   // height: 100%;
   img {
@@ -30,6 +30,7 @@
     margin-bottom: 65px;
     width: 50vw;
     height: 26vw;
+    padding-bottom: 25px;
     @include mobile {
       margin-top: -900px;
     }
