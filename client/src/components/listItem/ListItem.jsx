@@ -4,6 +4,7 @@ import {
   Add,
   ThumbUpAltOutlined,
   ThumbDownOutlined,
+  InfoOutlined,
 } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -31,7 +32,7 @@ export default function ListItem({ index, item }) {
     getMovie();
   }, [item]);
   return (
-    <Link to={{ pathname: "/review", movie: movie }}>
+   
       <div
         className="listItem"
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
@@ -46,7 +47,9 @@ export default function ListItem({ index, item }) {
               <div className="icons">
                 <Link to={{ pathname: "/watch", movie: movie }} className="link">
                 <PlayArrow className="icon" /></Link>
-                <Add className="icon" />
+                <Link to={{ pathname: "/review", movie: movie }} className="link">
+                < InfoOutlined className="icon" /> 
+                </Link>
                 <ThumbUpAltOutlined className="icon" />
                 <ThumbDownOutlined className="icon" />
               </div>
@@ -61,6 +64,6 @@ export default function ListItem({ index, item }) {
           </>
         )}
       </div>
-    </Link>
+   
   );
 }

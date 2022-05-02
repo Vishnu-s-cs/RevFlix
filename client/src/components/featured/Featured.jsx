@@ -61,10 +61,11 @@ var a
             <PlayArrow />
             <span>Play</span>
           </button></Link>
+          <Link to={{ pathname: "/review", movie: movie }} className="link">
           <button className="more">
             <InfoOutlined />
             <span>Info</span>
-          </button>
+          </button></Link>
         </div>
       </div>
     </div>

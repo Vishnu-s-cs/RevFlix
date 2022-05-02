@@ -14,11 +14,26 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { TextField,ButtonGroup,Button} from "@material-ui/core";
-import { Cancel,Done } from "@material-ui/icons";
-export default function Book(){
-    const location = useLocation();
-  const movie = location.movie;
-  const [rating, setRating] = useState(0)
+import { Cancel,Done,PlayArrow} from "@material-ui/icons";
+import { Link } from "react-router-dom";
+export default function Book(){ 
+  const location = useLocation();
+  
+  let movie = location.movie;
+  if(movie){
+   localStorage.setItem("movie",JSON.stringify(location.movie));
+  }  else{
+    movie = JSON.parse(localStorage.getItem("movie"))
+  }
+  // movie?JSON.parse(localStorage.getItem("movie")):localStorage.setItem("movie",JSON.stringify(location.movie));
+  // const state = {
+  //   movie: JSON.parse(localStorage.getItem("movie")) || movie
+  // }
+  // useEffect(() => {
+  //   localStorage.setItem("movie", JSON.stringify(state.movie));
+  // }, [state.movie]);
+   
+  const [rating, setRating] = useState('')
   const [comment, setComment] = useState('')
   const[name,setName]=useState('')
 const reset = ()=>{
@@ -58,7 +73,15 @@ const createReview = async()=>{
         <img src={movie.imgTitle} alt="" />
         <span className="desc">{movie.desc}</span>
         Average: <br />
+        <br />
         <Rating value={movie.rating} />
+        <br />
+        <div className="buttons">
+          <Link to={{ pathname: "/watch", movie: movie }} className="link">
+          <button className="play">
+            <PlayArrow />
+            <span>Play</span>
+          </button></Link></div>
         <div className="review">
         <h2>Reviews</h2>
         <Grid container justify="center" className="items"> 
@@ -71,7 +94,7 @@ const createReview = async()=>{
                   
                 ))}
               </Grid>
-    
+              
       </div> 
       
     </div>
