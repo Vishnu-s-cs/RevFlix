@@ -84,7 +84,7 @@ const createReview = async()=>{
           </button></Link></div>
         <div className="review">
         <h2>Reviews</h2>
-        <Grid container justify="center" className="items"> 
+        {movie.reviews?<Grid container justify="center" className="items"> 
             {movie.reviews.length === 0 && <Message>No Reviews</Message>}
               
           {movie.reviews.map((review) => (
@@ -93,7 +93,7 @@ const createReview = async()=>{
             </Paper>
                   
                 ))}
-              </Grid>
+              </Grid>:<Message>No reviews</Message>}
               
       </div> 
       
