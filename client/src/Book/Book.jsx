@@ -67,12 +67,12 @@ const createReview = async()=>{
   return( 
     <><div className="main">
       <Navbar></Navbar>
-    <div className="featured">
+    <div className="book">
       <img src={movie.img} alt="" />
       <div className="info">
         <img src={movie.imgTitle} alt="" />
         <span className="desc">{movie.desc}</span>
-        Average: <br />
+        <span className="avg">Average Rating:</span>  
         <br />
         <Rating value={movie.rating} />
         <br />
