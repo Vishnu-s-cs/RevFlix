@@ -5,7 +5,9 @@ import {
   ThumbUpAltOutlined,
   ThumbDownOutlined,
   InfoOutlined,
+  LocalActivityOutlined,
 } from "@material-ui/icons";
+// import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -50,8 +52,9 @@ export default function ListItem({ index, item }) {
                 <Link to={{ pathname: "/review", movie: movie }} className="link">
                 < InfoOutlined className="icon" /> 
                 </Link>
-                <ThumbUpAltOutlined className="icon" />
-                <ThumbDownOutlined className="icon" />
+                {/* <ThumbUpAltOutlined className="icon" />
+                <ThumbDownOutlined className="icon" /> */}
+                <LocalActivityOutlined/>
               </div>
               <div className="itemInfoTop">
                 <span>{movie.duration}</span>
