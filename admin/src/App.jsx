@@ -2,6 +2,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./app.css";
 import Home from "./pages/home/Home";
+import Book from "./pages/Book/Book"
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -70,6 +71,9 @@ function App() {
               </Route>
               <Route path="/newlist">
                 <NewList />
+              </Route>
+              <Route path="/Book/:id">
+                <Book />
               </Route>
             </div>
           </>

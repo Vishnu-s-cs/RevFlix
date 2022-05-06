@@ -35,11 +35,11 @@ export default function MovieList() {
     { field: "year", headerName: "year", width: 120 },
     { field: "limit", headerName: "limit", width: 120 },
     { field: "isSeries", headerName: "isSeries", width: 120 },
-
+    
     {
       field: "action",
       headerName: "Action",
-      width: 150,
+      width: 185,
       renderCell: (params) => {
         return (
           <>
@@ -52,6 +52,11 @@ export default function MovieList() {
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}
             />
+             <Link
+              to={{ pathname: "/Book/" + params.row._id, movie: params.row }}
+            >
+              <button className="productListEdit">Add Seats</button>
+            </Link>
           </>
         );
       },
