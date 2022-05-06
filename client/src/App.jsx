@@ -1,10 +1,11 @@
 import "./app.scss";
-import Book from "./Book/Book";
+import Review from "./Review/review";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
 import Plan from "./pages/PayPlans/paymentPlans"
+import Book from "./Book/Book"
 import {BrowserRouter as Router,
   Switch,
   Route,
@@ -38,6 +39,9 @@ const App = () => {
               <Watch />
             </Route>
             <Route path="/review">
+              <Review />
+            </Route>
+            <Route path="/Book">
               <Book />
             </Route>
           </>

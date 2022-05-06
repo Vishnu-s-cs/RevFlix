@@ -54,7 +54,7 @@ export default function ListItem({ index, item }) {
                 </Link>
                 {/* <ThumbUpAltOutlined className="icon" />
                 <ThumbDownOutlined className="icon" /> */}
-                <LocalActivityOutlined/>
+              <Link to="/Book" className="link">  <LocalActivityOutlined/></Link>
               </div>
               <div className="itemInfoTop">
                 <span>{movie.duration}</span>
