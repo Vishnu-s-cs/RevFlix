@@ -1,0 +1,9 @@
+@import "../app.scss";
+.main{
+    // background-color: var(--main-color);
+    height: 100%;
+    display: flex;
+    .form{
+        margin-top: 150px;
+    }
+}

@@ -6,8 +6,7 @@ const authRoute = require("../routes/auth");
 const userRoute = require("../routes/users");
 const movieRoute = require("../routes/movies");
 const listRoute = require("../routes/lists");
-// const paymentRoute = require("../routes/stripe");
-const subRoute = require("../routes/subs")
+const seatRoute = require('../routes/seats')
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -30,8 +29,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);
 app.use("/api/lists", listRoute);
-// app.use("/api/stripe",paymentRoute);
-app.use("/api/subs",subRoute);
+app.use("/api/seats",seatRoute)
 app.use("/",(req,res)=>{
   res.send("app started")
 })

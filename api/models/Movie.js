@@ -17,6 +17,11 @@ const MovieSchema = new mongoose.Schema(
     reviews:[{type: new mongoose.Schema({name: { type: String },
     rating: { type: Number},
     comment: { type: String}},{timestamps: true})}],
+    seats:[{type: new mongoose.Schema({seatNumber: { type: String, required: true },
+    isReserved: { type: Boolean, default: false },
+    price: { type: Number, required: true },
+    category: { type: String, required: true },
+    name: { type: String, default: '' }},{timestamps: true}, { expireAfterSeconds: 0 } )}]
   },
   { timestamps: true }
 );
