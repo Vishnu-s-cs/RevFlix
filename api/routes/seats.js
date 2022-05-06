@@ -1,12 +1,17 @@
 const router = require('express').Router();
 // const Seats = require('../models/Seats');
-const Movie = require('../models/Movie') 
-router.get('/', async (req, res) => {
+const Movie = require('../models/Movie');
+
+router.get('/book/:id', async (req, res) => {
+  const movie = await Movie.findById(req.params.id);
+  const hello= movie.seats
   try {
-    const seats = await Movie.seats.find();
-    res.status(200).json(seats);
+     
+     res.status(200).json(hello);
   } catch (err) {
-    res.status(500).json(err);
+    console.log(err);
+    // res.status(500).json(err);
+    
   }
 });
 

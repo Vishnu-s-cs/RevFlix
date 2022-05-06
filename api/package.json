@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node app/index.js"
+    "start": "nodemon app/index.js"
   },
   "keywords": [],
   "author": "Vishnu <vishnuvichuz198@gmail.com>",

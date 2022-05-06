@@ -21,7 +21,7 @@ const MovieSchema = new mongoose.Schema(
     isReserved: { type: Boolean, default: false },
     price: { type: Number, required: true },
     category: { type: String, required: true },
-    name: { type: String, default: '' }},{timestamps: true}, { expireAfterSeconds: 0 } )}]
+    name: { type: String, default: '' }},{timestamps: true}, { expireAfterSeconds: 10 } )}]
   },
   { timestamps: true }
 );
