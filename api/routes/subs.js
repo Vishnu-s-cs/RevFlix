@@ -8,13 +8,15 @@ dotenv.config();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY,{
     apiVersion:"2020-08-27"
 })
-router.get("/prices",async (req,res)=>{
+router.get("/prices",async (req,res)=>{try{
  
      const prices = await stripe.prices.list({
      apiKey:process.env.STRIPE_SECRET_KEY
  }) 
  res.json(prices);
-})
+}catch(err){
+    console.log(err);
+}})
 router.post("/session",async(req,res)=>{try{
     const customer = await User.findOne({ email: req.body.email });
    

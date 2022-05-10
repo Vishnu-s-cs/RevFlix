@@ -2,8 +2,9 @@ import "./review.scss";
 import Navbar from "../components/navbar/Navbar";
 import { useLocation } from "react-router-dom";
 import Rating from "./rating";
+import { AuthContext } from "../authContext/AuthContext";
 // import {FaStar} from 'react-icons/fa'
-import { useState,useEffect } from "react";
+import { useState,useContext,useEffect } from "react";
 import Message from "../components/message";
 import axios from "axios";
 import { Grid, Paper } from "@material-ui/core";
@@ -18,13 +19,31 @@ import { Cancel,Done,PlayArrow} from "@material-ui/icons";
 import { Link } from "react-router-dom";
 export default function Review(){ 
   const location = useLocation();
+  const { user } = useContext(AuthContext);
+  const [movie,setMovie]=useState({})
   
-  let movie = location.movie;
-  if(movie){
+  let item = location.movie;
+  if(item){
    localStorage.setItem("movie",JSON.stringify(location.movie));
   }  else{
-    movie = JSON.parse(localStorage.getItem("movie"))
-  }
+    item = JSON.parse(localStorage.getItem("movie"))
+  }useEffect(() => {
+    const getMovie = async () => {
+      try {
+        const res = await axios.get("/movies/find/" + item._id, {
+          headers: {
+            token:
+            "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        });
+        setMovie(res.data);
+        
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getMovie();
+  }, []);
   // movie?JSON.parse(localStorage.getItem("movie")):localStorage.setItem("movie",JSON.stringify(location.movie));
   // const state = {
   //   movie: JSON.parse(localStorage.getItem("movie")) || movie
@@ -35,7 +54,8 @@ export default function Review(){
    
   const [rating, setRating] = useState('')
   const [comment, setComment] = useState('')
-  const[name,setName]=useState('')
+  // const[name,setName]=useState('')
+  const name = user.username;
 const reset = ()=>{
   setRating(0);
   setComment('');
@@ -102,9 +122,9 @@ const createReview = async()=>{
     </div>
     </div>
     <div className="form"><h2>Write a review</h2>
-    <FormControl>
+    {/* <FormControl>
         <TextField variant="outlined" value={name}  placeholder="name" color="primary" className="textField1"  onChange={(e) => setName(e.target.value)}></TextField> 
-        </FormControl><br />
+        </FormControl><br /> */}
       <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
       
         <InputLabel id="demo-simple-select-filled-label">Rating</InputLabel>
@@ -128,7 +148,7 @@ const createReview = async()=>{
         <ButtonGroup className="button"  variant="contained">
     <Button
     startIcon={<Done/>}
-           className="button1" onClick={()=>{createReview(rating,comment)}}>Add Review</Button> 
+           className="button1" onClick={()=>{createReview(name,rating,comment)}}>Add Review</Button> 
        <Button
     startIcon={<Cancel/>}
         color="primary" onClick={()=>{reset()}}>Cancel</Button>

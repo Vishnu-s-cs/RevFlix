@@ -70,13 +70,13 @@ router.post("/login", async (req, res) => {
 
     const {password,...info } = user._doc;
 
-     res.status(200).json({ ...info, accessToken, subscriptions});
+     res.cookie("access_token",accessToken,{httpOnly:true,}).status(200).json({ ...info, accessToken, subscriptions});
   
   } catch(err){
     res.status(500);
    
     console.log("login failed/invalid credentials");
-    
+    console.log(err);
   }
   
 });

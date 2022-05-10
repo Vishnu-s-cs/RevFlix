@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { login } from "../../authContext/apiCalls";
 import { AuthContext } from "../../authContext/AuthContext";
 import "./login.scss";
@@ -12,6 +12,7 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     login({ email, password }, dispatch);
+
   };
   return (
     <div className="login">

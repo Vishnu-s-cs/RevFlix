@@ -1,9 +1,6 @@
 import "./listItem.scss";
 import {
   PlayArrow,
-  Add,
-  ThumbUpAltOutlined,
-  ThumbDownOutlined,
   InfoOutlined,
   LocalActivityOutlined,
 } from "@material-ui/icons";

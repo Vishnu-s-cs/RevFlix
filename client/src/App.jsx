@@ -6,6 +6,7 @@ import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
 import Plan from "./pages/PayPlans/paymentPlans"
 import Book from "./Book/Book"
+import Seats from "./components/seats/seats"
 import {BrowserRouter as Router,
   Switch,
   Route,
@@ -16,6 +17,7 @@ import { AuthContext } from "./authContext/AuthContext";
 
 const App = () => {
   const { user } = useContext(AuthContext);
+ 
   return (
     <Router>
       <Switch>
@@ -43,6 +45,9 @@ const App = () => {
             </Route>
             <Route path="/Book">
               <Book />
+            </Route>
+            <Route path="/seats">
+              <Seats />
             </Route>
           </>
         )}

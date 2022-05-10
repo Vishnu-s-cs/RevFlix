@@ -1,4 +1,8 @@
+// import { useHistory } from "react-router-dom";
+
 const AuthReducer = (state, action) => {
+  // const history = useHistory();
+
   switch (action.type) {
     case "LOGIN_START":
       return {
@@ -20,9 +24,11 @@ const AuthReducer = (state, action) => {
       };
     case "LOGOUT":
       return {
+        
         user: null,
         isFetching: false,
         error: false,
+        // redirect(){ history.push("/register");},
       };
     default:
       return { ...state };

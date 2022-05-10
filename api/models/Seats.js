@@ -3,7 +3,7 @@ const {Schema} = mongoose;
 
 const SeatSchema = new Schema(
   {
-    seatNumber: { type: String, required: true },
+    seatNumber:  [{ number: Number, unavailableDates: {type: [Date]}}],
     isReserved: { type: Boolean, default: false },
     price: { type: Number, required: true },
     category: { type: String, required: true },
