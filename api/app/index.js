@@ -9,7 +9,6 @@ const listRoute = require("../routes/lists");
 const seatRoute = require('../routes/seats');
 const subRoute = require("../routes/subs")
 const bodyParser = require("body-parser");
-const cookieParser =require('cookie-parser')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 dotenv.config();
@@ -24,7 +23,6 @@ mongoose.connect(process.env.MONGO_URL, {
   .then(() => console.log("Its connected baby!")).catch((err) => 
   
     console.error(err))
-app.use(cookieParser())  
 app.use(express.json());
 
 app.use("/api/auth", authRoute);

@@ -33,13 +33,13 @@ const Navbar = () => {
           <Link to="/movies" className="link">
             <span className="navbarmainLinks">Movies</span>
           </Link>
-          <span>New and Popular</span>
+          
           <span>My List</span>
         </div>
         <div className="right">
-          <Search className="icon" />
+         
           
-          <Notifications className="icon" />
+          <span>Hi,{user.username}&nbsp;</span>
           <img
             src={user.profilePic}
             alt=""

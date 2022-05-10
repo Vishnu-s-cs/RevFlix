@@ -73,7 +73,7 @@ router.post("/login", async (req, res) => {
      res.cookie("access_token",accessToken,{httpOnly:true,}).status(200).json({ ...info, accessToken, subscriptions});
   
   } catch(err){
-    res.status(500);
+    res.status(500).send(err);
    
     console.log("login failed/invalid credentials");
     console.log(err);
