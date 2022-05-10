@@ -7,10 +7,11 @@ const TheatreSchema = new Schema(
         location: { type: String, default: '' },
       Screen: { type: Number},
       photos:{
-          type:String
+          type:[String],
+          default:'https://lh3.googleusercontent.com/p/AF1QipNO-BkFfS40xhuX0YBz1VXpcrFJpQjUnnon-jo=s1600-w400'
       },
       desc:{
-          type:[String],
+          type:String,
 
       },
       rating:{
@@ -19,7 +20,7 @@ const TheatreSchema = new Schema(
           max:5
       },
       seats:{
-          type:[string]
+          type:[String],
       },
       featured:{
           type:Boolean,
@@ -30,5 +31,5 @@ const TheatreSchema = new Schema(
     { timestamps: true }
   );
   
-  const Theatre = mongoose.model('seats',TheatreSchema);
+  const Theatre = mongoose.model('Theatre',TheatreSchema);
   module.exports = Theatre;
