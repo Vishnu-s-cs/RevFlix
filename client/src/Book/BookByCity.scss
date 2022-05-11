@@ -2,11 +2,12 @@
     h2{
     padding-top: 10px;
     padding-left: 20px;
+    padding-top: 150px;
     }
 .theatreIn{
     width: 100%;
     max-width: 465px;
-    display: flex;
+    display: table-row;
     justify-content: space-between;
     gap: 20px;
     z-index: 1;
@@ -18,7 +19,7 @@
       color: white;
       border-radius: 10px;
       overflow: hidden;
-      
+      width: 100%;
       height: 230px;
       flex:1;
       margin-top:10px;
@@ -37,3 +38,17 @@
       left: 20px;
     }
 }}
+.paperImg{
+  height: 154px;
+  width: 223px;
+}
+.button{
+  height: 40px;
+        border-radius: 5px;
+        background-color:  rgb(228, 152, 11);
+        color: white;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+}

@@ -130,7 +130,11 @@ function Book() {
             <img
               src="https://uploads.tapatalk-cdn.com/20181125/73a0442dd547983ffebc9bc7b8bb74ab.jpg"
               alt=""
-              className="featuredImg"
+              className="featuredImg" onClick={()=>{
+                history.push({
+                  pathname: '/BookByCity',
+                  search: '?city=Harippad'})
+              }}
             />
             <div className="featuredTitles">
               <h1>Haripad</h1>
@@ -141,7 +145,11 @@ function Book() {
             <img
               src="https://lh3.googleusercontent.com/p/AF1QipMWGCTDj2hC7fVtKJH1WCxKvn-yQchzdVixcnUd=s1600-w400"
               alt=""
-              className="featuredImg"
+              className="featuredImg" onClick={()=>{
+                history.push({
+                  pathname: '/BookByCity',
+                  search: '?city=Cherthala'})
+              }}
             />
             <div className="featuredTitles">
               <h1>Cherthala</h1>

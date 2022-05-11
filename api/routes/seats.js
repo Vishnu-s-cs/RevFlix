@@ -1,17 +1,22 @@
 const router = require('express').Router();
-// const Seats = require('../models/Seats');
-const Movie = require('../models/Movie');
+const Theatre = require('../models/Theatres')
+const Seats = require('../models/Seats')
 
-router.get('/book/:id', async (req, res) => {
-  const movie = await Movie.findById(req.params.id);
-  const hello= movie.seats
-  try {
-     
-     res.status(200).json(hello);
+router.post('/setSeat/:theatreid', async (req, res,next) => {
+  const theatreId = req.params.theatreid;
+  const newSeat = new Seats(req.body);
+try {
+    const savedSeat = await newSeat.save();
+    try {
+      await Theatre.findByIdAndUpdate(theatreId, {
+        $push: { seats: savedSeat._id },
+      });
+    } catch (err) {
+      next(err);
+    }
+    res.status(200).json(savedSeat);
   } catch (err) {
-    console.log(err);
-    // res.status(500).json(err);
-    
+    next(err);
   }
 });
 
@@ -28,60 +33,17 @@ router.post('/add/:id', async (req, res) => {
   }
 });
 
-// // insert many
-// router.post('/insertmany', async (req, res) => {
-//   try {
-//     const multiUser = await Seats.insertMany(req.body);
-//     res.status(200).json(multiUser);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.put('/:id/:user', async (req, res) => {
-//   // console.log(req.params.user);
-//   const user = await Seats.findById(req.params.id);
-//   try {
-//     if (!user.isReserved) {
-//       const updateSeat = await Seats.findByIdAndUpdate(
-//         req.params.id,
-//         {
-//           $set: {
-//             isReserved: true,
-//             name: req.params.user,
-//           },
-//         },
-//         { new: true }
-//       );
-//       res.status(200).json(updateSeat);
-//     } else {
-//       res.status(200).json('its already booked');
-//       console.log('its already booked');
-//     }
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.patch('/updateAll', async (req, res) => {
-//   try {
-//     const updateAll = await Seats.updateMany(
-//       { isReserved: true },
-//       { $set: { isReserved: false, name: '' } }
-//     );
-//     res.status(200).json(updateAll);
-//   } catch (err) {
-//     res.status(500).json('Error' + err);
-//   }
-// });
-
-// router.delete('/delete', async (req, res) => {
-//   try {
-//     const deleteAll = await Seats.deleteMany();
-//     res.status(200).json(deleteAll);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+router.put('/availability/:id', async (req, res) => {
+  try {
+    const updatedSeat = await Seats.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true }
+    );
+    res.status(200).json(updatedSeat);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

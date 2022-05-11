@@ -73,10 +73,10 @@ router.post("/register",verify, async (req, res,next) => {
   });
   router.get("/seat/:id",verify, async (req, res,next) => {
     try {
-      const Theatre = await Theatre.findById(req.params.id);
+      const theatre = await Theatre.findById(req.params.id);
       const list = await Promise.all(
-        Theatre.Seats.map((Seat) => {
-          return Seats.findById(Seat);
+        theatre.seats.map((seat) => {
+          return Seats.findById(seat);
         })
       );
       res.status(200).json(list)
