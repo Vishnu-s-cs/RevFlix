@@ -15,7 +15,7 @@ router.post("/register",verify, async (req, res,next) => {
   }
     
   });
-  router.put("/update:id",verify, async (req, res,next) => {
+  router.put("/update/:id",verify, async (req, res,next) => {
   
     try {
         const updatedTheatre = await Theatre.findByIdAndUpdate(

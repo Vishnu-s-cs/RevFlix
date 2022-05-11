@@ -17,10 +17,8 @@ function Book() {
       const location = useLocation();
       const { user } = useContext(AuthContext);
       const [movie,setMovie]=useState({})
-      const{data, loading,error}=useFetch("theatre/countByCity?cities=Alappuzha");
-      console.log(data);
-      const{data0, loading0,error0}=useFetch("theatre?new=true");
-      console.log(data0);
+      const{data, loading,error}=useFetch("theatre/countByCity?cities=Alappuzha,Harippad,Cherthala");
+      const{data0, loading0,error0}=useFetch("theatre?new=false");
       let item = location.movie;
       if(item){
        localStorage.setItem("movieBook",JSON.stringify(location.movie));
@@ -105,7 +103,7 @@ function Book() {
         </div>
         <div className='theatres'>
         <h2>Book Tickets</h2>
-        <div className="featured">
+        <div className="featuredx">
           
       {loading ? (
         "Loading please wait"
@@ -147,8 +145,21 @@ function Book() {
           </div>
         </>
       )}
+    </div> <h2>All Theatres</h2>
+    <div className='all'>
+     
+      {/* <img src={data0[0]?.photos[0]} alt="" /> */}
+      {loading0 ? ("loading please wait "):(<>
+      {data0 && data0.map((i)=>{
+        return <div key={Math.random()} className='Item'> <img src={i?.photos[0]} alt="" className='Img'/>
+        <div className='Titles'><h3>{i.name}</h3></div>
+        </div>
+        
+      })}
+      </>)}
     </div>
-      </div></>
+      </div>
+      </>
     
   )
 }

@@ -6,10 +6,8 @@ const TheatreSchema = new Schema(
         city: { type: String, required: true },
         location: { type: String, default: '' },
       Screen: { type: Number},
-      photos:{
-          type:[String],
-          default:'https://lh3.googleusercontent.com/p/AF1QipNO-BkFfS40xhuX0YBz1VXpcrFJpQjUnnon-jo=s1600-w400'
-      },
+      photos:[{type: String,default:'https://lh3.googleusercontent.com/p/AF1QipNO-BkFfS40xhuX0YBz1VXpcrFJpQjUnnon-jo=s1600-w400'}],
+          
       desc:{
           type:String,
 
