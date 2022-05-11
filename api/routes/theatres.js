@@ -48,11 +48,10 @@ router.post("/register",verify, async (req, res,next) => {
   });
   router.get("/", verify, async (req, res) => {
     const query = req.query.new;
-    
       try {
         const theatres = query
           ? await Theatre.find().sort({ _id: -1 }).limit(5)
-          : await Theatre.find();
+          : await Theatre.find(req.query).limit(req.query.limit);
         res.status(200).json(theatres);
       } catch (err) {
         res.status(500).json(err);

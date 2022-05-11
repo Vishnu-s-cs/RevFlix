@@ -7,6 +7,7 @@ import Login from "./pages/login/Login";
 import Plan from "./pages/PayPlans/paymentPlans"
 import Book from "./Book/Book"
 import Seats from "./components/seats/seats"
+import BookByCity from "./Book/BookByCity";
 import {BrowserRouter as Router,
   Switch,
   Route,
@@ -45,6 +46,9 @@ const App = () => {
             </Route>
             <Route path="/Book">
               <Book />
+            </Route>
+            <Route path="/BookByCity">
+              <BookByCity />
             </Route>
             <Route path="/seats">
               <Seats />

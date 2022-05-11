@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/navbar/Navbar'
 import './Book.scss'
-import { useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { useContext,useEffect,useState } from 'react'
 import axios from 'axios'
 import { AuthContext } from '../authContext/AuthContext'
@@ -13,7 +13,7 @@ import { Grid } from '@mui/material'
 import { Paper } from '@material-ui/core'
 import useFetch from '../hooks/useFetch'
 function Book() {
-    
+      const history = useHistory()
       const location = useLocation();
       const { user } = useContext(AuthContext);
       const [movie,setMovie]=useState({})
@@ -114,6 +114,11 @@ function Book() {
               src="https://pbs.twimg.com/media/EjAf4XkU4AE2CCG.jpg"
               alt=""
               className="featuredImg"
+              onClick={()=>{
+                history.push({
+                  pathname: '/BookByCity',
+                  search: '?city=Alappuzha'})
+              }}
             />
             <div className="featuredTitles">
               <h1>Alappuzha Town</h1>

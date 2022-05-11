@@ -1,0 +1,39 @@
+.body{
+    h2{
+    padding-top: 10px;
+    padding-left: 20px;
+    }
+.theatreIn{
+    width: 100%;
+    max-width: 465px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 1;
+    padding-top: 10px;
+    padding-left: 20px;
+    
+    .Item{
+      position: relative;
+      color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      
+      height: 230px;
+      flex:1;
+      margin-top:10px;
+      
+    }
+    
+    .Img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .Titles{
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+}}
