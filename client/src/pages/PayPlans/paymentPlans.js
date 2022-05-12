@@ -119,7 +119,7 @@ function ButtonStyled(){
      {/* <ButtonStyled /> */}
     <Grid container justify="center" className="items"> 
     {prices.map((price)=>{
-      return <Paper key={Math.random()} className={price.nickname==="Premium"?"paper":"paper2"}>
+      return price.unit_amount/100 !=130 && <Paper key={Math.random()} className={price.nickname==="Premium"?"paper":"paper2"}>
       <div className="Title">{price.nickname}</div>
       <div className="price">₹{price.unit_amount/100}</div><hr />
       {price.unit_amount/100==1500&&<div className="paper-body"><ul><li>365 days of premium membership</li></ul></div>}
