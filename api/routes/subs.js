@@ -17,6 +17,7 @@ router.get("/prices",async (req,res)=>{try{
 }catch(err){
     console.log(err);
 }})
+//subscriptions
 router.post("/session",async(req,res)=>{try{
     const customer = await User.findOne({ email: req.body.email });
    
@@ -36,6 +37,27 @@ router.post("/session",async(req,res)=>{try{
     });
     res.json(session);}catch(err){
         res.status(401).json("pls register")
+    }
+})
+router.post("/ticketSession",async(req,res)=>{try{
+    const customer = await User.findOne({ email: req.body.email });
+   
+    const session= await stripe.checkout.sessions.create({
+        mode:"payment",
+        payment_method_types:["card"],
+        line_items:[
+            {
+                price: req.body.priceId,
+                quantity:req.body.quantity,
+                
+            }
+        ],
+        success_url:"http://localhost:3000/Book",
+        cancel_url:"http://localhost:3000/",
+        customer: customer.customerId,
+    });
+    res.json(session);}catch(err){
+        res.status(401).json(err)
     }
 })
 module.exports = router;

@@ -9,13 +9,19 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import useFetch from '../../hooks/useFetch';
 function Reserve({setOpen,theatreId}) {
+  const { user } = useContext(AuthContext);
+  console.log(user.email);
+   const priceId= "price_1KyQsbSEIuQNw8aUVXLR0gnJ";
+   const[Email,setEmail]=useState('')
     const navigate = useHistory()
     const [selectedSeats, setSelectedSeats] = useState([]);
+    const [quantity,setQuantity]=useState(0)
     const { data, loading, error } = useFetch(`theatre/seat/${theatreId}`);
     let isReserved=false
     const handleSelect = (e) => {
         const checked = e.target.checked;
         const value = e.target.value;
+        setQuantity(quantity+1)
         setSelectedSeats(
           checked
             ? [...selectedSeats, value]
@@ -27,18 +33,27 @@ function Reserve({setOpen,theatreId}) {
     
       const handleClick = async () => {
         try {
-          await Promise.all(
-            selectedSeats.map((roomId) => {
-              const res = axios.put(`seat/availability/${roomId}`, {
-                isReserved: true
+          // await Promise.all(
+          //   selectedSeats.map((roomId) => {
+          //     const res = axios.put(`seat/availability/${roomId}`, {
+          //       isReserved: true
                 
-              });
-              return res.data;
-            })
-          );
-          setOpen(false);
-          navigate.push("/Book");
-        } catch (err) {}
+          //     });
+          //     return res.data;
+          //   })
+          // );
+
+          const {data: res}= await axios.post('subs/ticketSession',{
+            email:user.email,
+            priceId: priceId,
+            quantity: quantity
+
+          })
+          window.location.href = res.url
+          await setOpen(false);
+        } catch (err) {
+          alert("payment gateway busy")
+        }
       };
   return (
     <div className="reserve">
