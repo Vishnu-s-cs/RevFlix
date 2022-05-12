@@ -28,7 +28,7 @@ function Reserve({setOpen,theatreId}) {
       const handleClick = async () => {
         try {
           await Promise.all(
-            selectedRooms.map((roomId) => {
+            selectedSeats.map((roomId) => {
               const res = axios.put(`seat/availability/${roomId}`, {
                 isReserved: true
                 
@@ -37,7 +37,7 @@ function Reserve({setOpen,theatreId}) {
             })
           );
           setOpen(false);
-          navigate.push("/");
+          navigate.push("/Book");
         } catch (err) {}
       };
   return (
@@ -64,7 +64,7 @@ function Reserve({setOpen,theatreId}) {
                   <label>{roomNumber.number}</label>
                   <input
                     type="checkbox"
-                    value={roomNumber._id}
+                    value={roomNumber}
                     onChange={handleSelect}
                     disabled={item.isReserved===true}
                   />

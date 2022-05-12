@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useHistory,Link } from "react-router-dom";
+import { useHistory,Link, useLocation } from "react-router-dom";
 import { useState,useEffect } from "react";
 import { Container } from "@material-ui/core";
 import { Button } from "@material-ui/core";
@@ -20,7 +20,9 @@ import { Toolbar } from "@material-ui/core";
 import { Menu,Money} from "@material-ui/icons";
 import { red } from "@material-ui/core/colors";
 const Plan =()=>{
-  const [email, setEmail] = useState("");
+  const location=useLocation();
+  console.log(location.state);
+  const [email, setEmail] = useState(location.state || '');
   const [priceId, setpriceId] = React.useState('price_1KZZI3SEIuQNw8aUY5njN6Lf');
   const history = useHistory();
  const useStyles = makeStyles({
@@ -127,7 +129,7 @@ function ButtonStyled(){
      </Grid>
      
      <div className="main"> 
-     <TextField variant="outlined" type="email" placeholder="email" color="secondary" className="textField"  onChange={(e) => setEmail(e.target.value)}></TextField> 
+     <TextField variant="outlined" value={email} type="email" placeholder="email" color="secondary" className="textField"  onChange={(e) => setEmail(e.target.value)}></TextField> 
        <div>
        
        <><FormControlLabel control={ <Radio

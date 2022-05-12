@@ -10,6 +10,10 @@ const subRoute = require("../routes/subs");
 const theatreRoute = require("../routes/theatres")
 const seatRoute = require("../routes/seats")
 const bodyParser = require("body-parser");
+process.on('uncaughtException', function (err) {
+  console.error(err);
+  console.log("Node NOT Exiting...");
+});
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 dotenv.config();

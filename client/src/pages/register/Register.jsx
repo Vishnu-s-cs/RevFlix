@@ -33,10 +33,13 @@ export default function Register() {
     try {
       await axios.post("auth/register", { email,username, password });
       // await login({ email, password }, dispatch);
-      await history.push("/subscriptions");
+      await history.push({
+        pathname: '/subscriptions',
+        state: email});
       
       
-    } catch (err) {console.log(err);}
+    } catch (err) {console.log(err)
+      alert("Invalid email/unavailable username");}
   };
   return (
     <div className="register">

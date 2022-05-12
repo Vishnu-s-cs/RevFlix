@@ -42,7 +42,7 @@ router.put('/availability/:id', async (req, res) => {
     );
     res.status(200).json(updatedSeat);
   } catch (err) {
-    next(err);
+    console.log(err);
   }
 });
 

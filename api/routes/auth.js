@@ -4,12 +4,13 @@ const CryptoJS=require('crypto-js')
 const jwt = require("jsonwebtoken");
 const Stripe = require("stripe")
 const dotenv = require("dotenv");
+
 dotenv.config();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY,{
     apiVersion:"2020-08-27"
 })
 //REGISTER
-router.post("/register", async (req, res) => {
+router.post("/register", async (req, res ,next) => {
   
   const customer = await stripe.customers.create({
     email: req.body.email,
@@ -26,7 +27,8 @@ router.post("/register", async (req, res) => {
     const user = await newUser.save();
     res.status(201).json([user,payee.id]);
   } catch (err) {
-    console.log(err);
+    next(err)
+    res.send("invalid credentials or used user name")
     // res.status(500).json(err);
   }
   // console.log(customer);

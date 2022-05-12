@@ -5,6 +5,7 @@ import { AuthContext } from "../../authContext/AuthContext";
 import "./login.scss";
 
 export default function Login() {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { dispatch } = useContext(AuthContext);
@@ -32,6 +33,7 @@ export default function Login() {
             type="email"
             placeholder="Email or phone number"
             onChange={(e) => setEmail(e.target.value)}
+            
           />
           <input
             type="password"

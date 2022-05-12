@@ -36,8 +36,8 @@ const Home = ({ type }) => {
     <div className="home">
       <Navbar />
       <Featured type={type} setGenre={setGenre} />
-      {lists.map((list) => (
-        <List list={list} key={id+Math.random()}/>
+      {lists.map((list,j) => (
+        <List list={list} key={j}/>
       ))}
 
 <div><Footer/></div>
