@@ -34,7 +34,7 @@ const Navbar = () => {
             <span className="navbarmainLinks">Movies</span>
           </Link>
           
-          <span>My List</span>
+          {/* <span>My List</span> */}
         </div>
         <div className="right">
          
