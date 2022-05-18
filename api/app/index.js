@@ -48,7 +48,7 @@ app.use((err, req, res, next) => {
   });
 });
 app.use("/",(req,res)=>{
-  res.send("app started")
+  res.send("A MAJOR PROJECT OF GROUP 6 UIT ALAPPUZHA 2019-22 BATCH DONE BY VISHNU S")
 })
 app.listen(process.env.PORT || 8800, () => {
   console.log("Backend server is running!");
