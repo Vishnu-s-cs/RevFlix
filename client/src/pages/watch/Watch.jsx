@@ -28,10 +28,32 @@
 import { ArrowBackOutlined } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
 import "./watch.scss";
+import React, { useRef, useEffect } from 'react';
+import ShakaPlayer from 'shaka-player-react';
 
 export default function Watch() {
+  
   const location = useLocation();
   const movie = location.movie;
+  // const controllerRef = useRef(null);
+
+  // useEffect(() => {
+  //   const {
+  //     /** @type {shaka.Player} */ player,
+  //     /** @type {shaka.ui.Overlay} */ ui,
+  //     /** @type {HTMLVideoElement} */ videoElement
+  //   } = controllerRef.current;
+
+  //   async function loadAsset() {
+  //     // Load an asset.
+  //     await player.load(movie.video);
+
+  //     // Trigger play.
+  //     videoElement.play();
+  //   }
+
+  //   loadAsset();
+  // }, []);
   return (
     <div className="watch">
       <Link to="/">
@@ -41,6 +63,7 @@ export default function Watch() {
         </div>
       </Link>
       <video className="video" autoPlay progress controls src={movie.video} />
+      {/* <ShakaPlayer autoPlay src={movie.video} />; */}
     </div>
   );
 }
